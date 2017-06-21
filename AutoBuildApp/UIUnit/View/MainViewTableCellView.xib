@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="MainViewTableCellViewId" id="c22-O7-iKe" customClass="MainViewTableCellView">
+            <rect key="frame" x="0.0" y="0.0" width="371" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3f-Vl-tHl">
+                    <rect key="frame" x="15" y="10" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="Pd0-kd-bBR"/>
+                        <constraint firstAttribute="height" constant="40" id="W6y-fx-pwl"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="唯" id="igf-HC-7zm">
+                        <font key="font" size="25" name="FranklinGothic-Book"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="eEX-oR-fOO" customClass="ColorView">
+                    <rect key="frame" x="0.0" y="0.0" width="371" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="7df-hE-4lA"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="eEX-oR-fOO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="KRR-fd-KVD"/>
+                <constraint firstItem="X3f-Vl-tHl" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="OHm-jR-aLN"/>
+                <constraint firstItem="X3f-Vl-tHl" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="17" id="OZ2-fY-NaK"/>
+                <constraint firstAttribute="bottom" secondItem="eEX-oR-fOO" secondAttribute="bottom" id="Vbe-fX-uhF"/>
+                <constraint firstAttribute="trailing" secondItem="eEX-oR-fOO" secondAttribute="trailing" id="oaQ-wu-SSq"/>
+            </constraints>
+            <connections>
+                <outlet property="bottonLine" destination="eEX-oR-fOO" id="wsT-JQ-cgx"/>
+                <outlet property="logoLabel" destination="X3f-Vl-tHl" id="YCh-jb-yUI"/>
+            </connections>
+            <point key="canvasLocation" x="-79.5" y="165"/>
+        </customView>
+    </objects>
+</document>

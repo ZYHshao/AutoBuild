@@ -687,7 +687,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="600"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="DEh-pR-JQE">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="DEh-pR-JQE" customClass="MainTopBar">
                                 <rect key="frame" x="0.0" y="560" width="480" height="40"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pbM-4C-0iU">
@@ -713,7 +713,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="topBarView" destination="DEh-pR-JQE" id="YUC-XT-4oV"/>
+                        <outlet property="topBarView" destination="DEh-pR-JQE" id="yFg-iR-1L1"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
