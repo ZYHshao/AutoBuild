@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "RouteManager.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<NSMenuDelegate>
 
 @end
 
@@ -19,8 +20,22 @@
 }
 
 
+
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+}
+
+
+#pragma mark -- menu tools action
+
+
+/**
+ 添加工程
+
+ @param sender item
+ */
+- (IBAction)addProject:(NSMenuItem *)sender {
+    [[RouteManager defaultManager]presentAddProjectViewControllerWithVC:nil];
 }
 
 

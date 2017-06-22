@@ -30,17 +30,28 @@
                         <constraint firstAttribute="height" constant="1" id="7df-hE-4lA"/>
                     </constraints>
                 </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9i-9T-rhD">
+                    <rect key="frame" x="67" y="19" width="58" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="唯品会" id="oSS-wH-5QI">
+                        <font key="font" size="18" name="KannadaMN"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="eEX-oR-fOO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="KRR-fd-KVD"/>
                 <constraint firstItem="X3f-Vl-tHl" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="OHm-jR-aLN"/>
                 <constraint firstItem="X3f-Vl-tHl" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="17" id="OZ2-fY-NaK"/>
+                <constraint firstItem="Y9i-9T-rhD" firstAttribute="centerY" secondItem="X3f-Vl-tHl" secondAttribute="centerY" id="TwY-AM-Ge1"/>
                 <constraint firstAttribute="bottom" secondItem="eEX-oR-fOO" secondAttribute="bottom" id="Vbe-fX-uhF"/>
+                <constraint firstItem="Y9i-9T-rhD" firstAttribute="leading" secondItem="X3f-Vl-tHl" secondAttribute="trailing" constant="16" id="cc1-wU-lVw"/>
                 <constraint firstAttribute="trailing" secondItem="eEX-oR-fOO" secondAttribute="trailing" id="oaQ-wu-SSq"/>
             </constraints>
             <connections>
                 <outlet property="bottonLine" destination="eEX-oR-fOO" id="wsT-JQ-cgx"/>
                 <outlet property="logoLabel" destination="X3f-Vl-tHl" id="YCh-jb-yUI"/>
+                <outlet property="titleLabel" destination="Y9i-9T-rhD" id="YGv-Dp-4np"/>
             </connections>
             <point key="canvasLocation" x="-79.5" y="165"/>
         </customView>
