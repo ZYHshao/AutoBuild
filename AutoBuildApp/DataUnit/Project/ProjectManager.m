@@ -7,6 +7,7 @@
 //
 
 #import "ProjectManager.h"
+#import "DBManager.h"
 
 @interface ProjectManager()
 
@@ -31,14 +32,22 @@
     return [self.projectArray copy];
 }
 
--(void)addProject:(ProjectModel *)project{
+-(NSString*)addProject:(ProjectModel *)project{
+    for (ProjectModel* obj in self.projectArray) {
+        if ([obj.projectPath isEqualToString:project.projectPath]) {
+            return @"已存在项目";
+        }
+    }
     [self.projectArray addObject:project];
+    [[DBManager defaultManager] addProject:project];
+    return @"success";
 }
 
 #pragma mark -- setter and getter
 -(NSMutableArray *)projectArray{
     if (!_projectArray) {
         _projectArray = [[NSMutableArray alloc]init];
+        [_projectArray addObjectsFromArray:[[DBManager defaultManager] getAllProjects]];
     }
     return _projectArray;
 }

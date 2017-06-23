@@ -85,6 +85,14 @@
     newModel.projectName = self.viewModel.projectName;
     newModel.projectPath = self.viewModel.projectPath;
     newModel.projectRealName = self.viewModel.projectRealName;
+    NSString * result = [[ProjectManager defaultManager] addProject:newModel];
+    if (![result isEqualToString:@"success"]) {
+        [self.warningLabel setStringValue:result];
+        self.warningLabel.hidden = NO;
+    }else{
+        [self dismissViewController:self];
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"MainViewShouldReloadData" object:nil];
+    }
 }
 
 - (IBAction)choiceFile:(NSButton *)sender {

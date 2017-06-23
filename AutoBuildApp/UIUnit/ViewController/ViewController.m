@@ -11,7 +11,7 @@
 #import "MainViewModel.h"
 #import "MainViewTableCellModel.h"
 #import "MainTopBar.h"
-
+#import "ProjectManager.h"
 @interface ViewController()
 
 @property (weak) IBOutlet MainTopBar *topBarView;
@@ -25,21 +25,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addNotification];
     [self installData];
     [self installView];
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+-(void)addNotification{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadData) name:@"MainViewShouldReloadData" object:nil];
+}
+
 -(void)installData{
-    /*test*/
-    MainViewTableCellModel * testModel = [[MainViewTableCellModel alloc]init];
-    testModel.title = @"唯享客";
-    [self.controlModel.dataArray addObject:testModel];
-    MainViewTableCellModel * testModel2 = [[MainViewTableCellModel alloc]init];
-    testModel2.title = @"AutoBuild";
-    [self.controlModel.dataArray addObject:testModel2];
+    [self.controlModel.dataArray addObjectsFromArray:[self createCellModelWithProject:[[ProjectManager defaultManager] getAllProject]]];
     [self.controlModel reloadData];
-    
-    /*....*/
 }
 
 -(void)installView{    
@@ -54,6 +55,24 @@
         make.bottom.equalTo(@0);
     }];
     scrollView.contentView.documentView = self.tableView;
+}
+
+
+-(NSArray<MainViewTableCellModel*>*)createCellModelWithProject:(NSArray<ProjectModel*> *)projects{
+    NSMutableArray * res = [NSMutableArray new];
+    for (int i=0; i<projects.count; i++) {
+        MainViewTableCellModel * model = [MainViewTableCellModel new];
+        model.projModel = projects[i];
+        model.title = projects[i].projectName;
+        [res addObject:model];
+    }
+    return [res copy];
+}
+
+-(void)reloadData{
+    [self.controlModel.dataArray removeAllObjects];
+    [self.controlModel.dataArray addObjectsFromArray:[self createCellModelWithProject:[[ProjectManager defaultManager] getAllProject]]];
+    [self.controlModel reloadData];
 }
 
 #pragma mark -- setter and getter

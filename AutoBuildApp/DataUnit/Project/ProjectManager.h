@@ -15,6 +15,6 @@
 
 -(NSArray *)getAllProject;
 
--(void)addProject:(ProjectModel *)project;
+-(NSString *)addProject:(ProjectModel *)project;
 
 @end

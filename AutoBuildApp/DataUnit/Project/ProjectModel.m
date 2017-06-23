@@ -10,4 +10,23 @@
 
 @implementation ProjectModel
 
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        _projectName = [coder decodeObjectForKey:@"projectName"];
+        _projectPath = [coder decodeObjectForKey:@"projectPath"];
+        _projectRealName = [coder decodeObjectForKey:@"projectRealName"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:_projectName forKey:@"projectName"];
+    [coder encodeObject:_projectPath forKey:@"projectPath"];
+    [coder encodeObject:_projectRealName forKey:@"projectRealName"];
+    
+}
+
 @end

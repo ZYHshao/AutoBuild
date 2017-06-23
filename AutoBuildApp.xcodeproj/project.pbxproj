@@ -26,6 +26,7 @@
 		252935ED1EF8C36D00B9DB24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 252935EC1EF8C36D00B9DB24 /* main.m */; };
 		252935F21EF8C36D00B9DB24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 252935F11EF8C36D00B9DB24 /* Assets.xcassets */; };
 		252935F51EF8C36D00B9DB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252935F31EF8C36D00B9DB24 /* Main.storyboard */; };
+		25E8ECDD1EFCC56C002AC584 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDC1EFCC56C002AC584 /* DBManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,8 @@
 		252935F11EF8C36D00B9DB24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		252935F41EF8C36D00B9DB24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		252935F61EF8C36D00B9DB24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25E8ECDB1EFCC56C002AC584 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		25E8ECDC1EFCC56C002AC584 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		7AE847BD76A010DB7209C67F /* libPods-AutoBuildApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoBuildApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A2BDC21A7E38E90B084CCE /* Pods-AutoBuildApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoBuildApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoBuildApp/Pods-AutoBuildApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C990DD9BF0ADD0A8B99FF793 /* Pods-AutoBuildApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoBuildApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AutoBuildApp/Pods-AutoBuildApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 		251E873D1EFB96610044FA7B /* DataUnit */ = {
 			isa = PBXGroup;
 			children = (
+				25E8ECDA1EFCC558002AC584 /* DB */,
 				251E873E1EFB968E0044FA7B /* Project */,
 			);
 			path = DataUnit;
@@ -214,6 +218,15 @@
 				251E87191EFA62640044FA7B /* ViewModel */,
 			);
 			path = UIUnit;
+			sourceTree = "<group>";
+		};
+		25E8ECDA1EFCC558002AC584 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				25E8ECDB1EFCC56C002AC584 /* DBManager.h */,
+				25E8ECDC1EFCC56C002AC584 /* DBManager.m */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		326BD1DCD50D9DDB8B774AD4 /* Frameworks */ = {
@@ -366,6 +379,7 @@
 				251E87481EFB9A530044FA7B /* AddProjectViewController.m in Sources */,
 				252935ED1EF8C36D00B9DB24 /* main.m in Sources */,
 				251E87221EFA62CA0044FA7B /* MainViewModel.m in Sources */,
+				25E8ECDD1EFCC56C002AC584 /* DBManager.m in Sources */,
 				251E87271EFA67290044FA7B /* ViewController.m in Sources */,
 				251E87391EFA7AA80044FA7B /* MainTopBar.m in Sources */,
 				251E87341EFA6EBE0044FA7B /* MainViewTableCellView.m in Sources */,

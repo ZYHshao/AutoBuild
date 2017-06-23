@@ -55,11 +55,11 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="工程" id="dMs-cI-mzQ">
+                            <menuItem title="项目" id="dMs-cI-mzQ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="工程" id="bib-Uj-vzu">
+                                <menu key="submenu" title="项目" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="添加工程" keyEquivalent="n" id="Was-JA-tGl">
+                                        <menuItem title="添加项目" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
                                                 <action selector="addProject:" target="Voe-Tx-rLC" id="b0r-4f-Pxh"/>
                                             </connections>
