@@ -27,6 +27,8 @@
 		252935F21EF8C36D00B9DB24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 252935F11EF8C36D00B9DB24 /* Assets.xcassets */; };
 		252935F51EF8C36D00B9DB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252935F31EF8C36D00B9DB24 /* Main.storyboard */; };
 		25E8ECDD1EFCC56C002AC584 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDC1EFCC56C002AC584 /* DBManager.m */; };
+		25E8ECE11EFE9E19002AC584 /* ProjectDetailWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDF1EFE9E19002AC584 /* ProjectDetailWindow.m */; };
+		25E8ECE21EFE9E19002AC584 /* ProjectDetailWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E8ECE01EFE9E19002AC584 /* ProjectDetailWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,9 @@
 		252935F61EF8C36D00B9DB24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25E8ECDB1EFCC56C002AC584 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		25E8ECDC1EFCC56C002AC584 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		25E8ECDE1EFE9E19002AC584 /* ProjectDetailWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailWindow.h; sourceTree = "<group>"; };
+		25E8ECDF1EFE9E19002AC584 /* ProjectDetailWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailWindow.m; sourceTree = "<group>"; };
+		25E8ECE01EFE9E19002AC584 /* ProjectDetailWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectDetailWindow.xib; sourceTree = "<group>"; };
 		7AE847BD76A010DB7209C67F /* libPods-AutoBuildApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoBuildApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A2BDC21A7E38E90B084CCE /* Pods-AutoBuildApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoBuildApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoBuildApp/Pods-AutoBuildApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C990DD9BF0ADD0A8B99FF793 /* Pods-AutoBuildApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoBuildApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AutoBuildApp/Pods-AutoBuildApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +111,9 @@
 				251E87451EFB9A530044FA7B /* AddProjectViewController.h */,
 				251E87461EFB9A530044FA7B /* AddProjectViewController.m */,
 				251E87471EFB9A530044FA7B /* AddProjectViewController.xib */,
+				25E8ECDE1EFE9E19002AC584 /* ProjectDetailWindow.h */,
+				25E8ECDF1EFE9E19002AC584 /* ProjectDetailWindow.m */,
+				25E8ECE01EFE9E19002AC584 /* ProjectDetailWindow.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -308,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25E8ECE21EFE9E19002AC584 /* ProjectDetailWindow.xib in Resources */,
 				251E87491EFB9A530044FA7B /* AddProjectViewController.xib in Resources */,
 				252935F21EF8C36D00B9DB24 /* Assets.xcassets in Resources */,
 				251E87361EFA6EFE0044FA7B /* MainViewTableCellView.xib in Resources */,
@@ -372,6 +381,7 @@
 			files = (
 				251E873C1EFA7F6A0044FA7B /* ColorView.m in Sources */,
 				251E87281EFA67290044FA7B /* WindowController.m in Sources */,
+				25E8ECE11EFE9E19002AC584 /* ProjectDetailWindow.m in Sources */,
 				251E87411EFB96A60044FA7B /* ProjectManager.m in Sources */,
 				251E87441EFB97470044FA7B /* ProjectModel.m in Sources */,
 				251E87501EFBB31E0044FA7B /* AddProjectViewModel.m in Sources */,

@@ -25,6 +25,18 @@
     // Insert code here to tear down your application
 }
 
+//点击关闭按钮后 在dock上可以继续打开
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
+{
+    if (!flag){
+        if (theApplication.windows.firstObject) {
+            [[theApplication windows].firstObject makeKeyAndOrderFront:self];
+        }
+        return YES;
+    }
+    return NO;
+    
+}
 
 #pragma mark -- menu tools action
 

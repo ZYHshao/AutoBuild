@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 #import "MainViewTableCellModel.h"
+#import "ProjectModel.h"
 
 @interface MainViewModel : NSObject<NSTableViewDataSource,NSTableViewDelegate>
+
+@property(nonatomic,strong)NSMutableArray<ProjectModel*> * projectArray;
 
 @property (nonatomic,strong)NSMutableArray<MainViewTableCellModel *> * dataArray;
 

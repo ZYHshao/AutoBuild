@@ -8,6 +8,7 @@
 
 #import "MainViewModel.h"
 #import "MainViewTableCellView.h"
+#import "RouteManager.h"
 
 #define MAIN_TABLE_CELL_ID @"MainViewTableCellViewId"
 
@@ -21,11 +22,18 @@
 
 -(void)registerTableView:(NSTableView *)tableView{
     self.tableView = tableView;
+    [self.tableView setTarget:self];
+    [self.tableView setDoubleAction:@selector(clickCell:)];
     [tableView registerNib:[[NSNib alloc] initWithNibNamed:@"MainViewTableCellView" bundle:[NSBundle mainBundle]] forIdentifier:MAIN_TABLE_CELL_ID];
 }
 
 -(void)reloadData{
     [self.tableView reloadData];
+}
+
+-(void)clickCell:(id)sender{
+    ProjectModel * model =self.projectArray[[self.tableView clickedRow]];
+    [[RouteManager defaultManager] showProjectDetailsWindow:model];
 }
 
 #pragma mark -- tableView DataSource
@@ -57,9 +65,16 @@
 
 -(NSMutableArray *)dataArray{
     if (!_dataArray) {
-        _dataArray = [[NSMutableArray alloc]init];
+        _dataArray = [NSMutableArray new];
     }
     return _dataArray;
+}
+
+-(NSMutableArray<ProjectModel *> *)projectArray{
+    if (!_projectArray) {
+        _projectArray = [NSMutableArray array];
+    }
+    return _projectArray;
 }
 
 @end

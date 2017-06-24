@@ -1,25 +1,30 @@
 //
-//  WindowController.m
+//  ProjectDetailWindow.m
 //  AutoBuildApp
 //
-//  Created by jaki on 2017/6/20.
+//  Created by jaki on 2017/6/24.
 //  Copyright © 2017年 jaki. All rights reserved.
 //
 
-#import "WindowController.h"
+#import "ProjectDetailWindow.h"
 #import <Masonry/Masonry.h>
+#import "ProjectModel.h"
 
+@interface ProjectDetailWindow ()
+@property (weak) IBOutlet NSTextField *titleLabel;
 
-@interface WindowController ()
 
 @end
 
-@implementation WindowController
+@implementation ProjectDetailWindow
 
 - (void)windowDidLoad {
     [super windowDidLoad];
     [self remakeTitleBar];
+    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
+
+
 
 -(void)remakeTitleBar{
     self.window.titlebarAppearsTransparent = YES;
@@ -37,6 +42,10 @@
     }];
 }
 
+-(void)updateViewWithModel:(ProjectModel *)model{
+    [self.window.contentView setNeedsLayout:YES];
+    [self.titleLabel setStringValue:model.projectName];
+}
 
 
 @end

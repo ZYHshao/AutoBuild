@@ -9,10 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 
+@class ProjectModel;
+
 @interface RouteManager : NSObject
+
 
 +(instancetype)defaultManager;
 
 -(void)presentAddProjectViewControllerWithVC:(NSViewController *)controller;
+
+-(void)showProjectDetailsWindow:(ProjectModel *)projectModel;
 
 @end

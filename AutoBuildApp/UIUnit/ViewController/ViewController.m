@@ -39,6 +39,7 @@
 }
 
 -(void)installData{
+    [self.controlModel.projectArray addObjectsFromArray:[[ProjectManager defaultManager] getAllProject]];
     [self.controlModel.dataArray addObjectsFromArray:[self createCellModelWithProject:[[ProjectManager defaultManager] getAllProject]]];
     [self.controlModel reloadData];
 }
