@@ -9,6 +9,8 @@
 #import "MainViewModel.h"
 #import "MainViewTableCellView.h"
 #import "RouteManager.h"
+#import "ProjectManager.h"
+#import "GUC.h"
 
 #define MAIN_TABLE_CELL_ID @"MainViewTableCellViewId"
 
@@ -34,6 +36,13 @@
 -(void)clickCell:(id)sender{
     ProjectModel * model =self.projectArray[[self.tableView clickedRow]];
     [[RouteManager defaultManager] showProjectDetailsWindow:model];
+}
+
+-(void)deleteProject{
+    ProjectModel * model =self.projectArray[[self.tableView clickedRow]];
+    [[ProjectManager defaultManager]deleteProject:model];
+    //需要刷新界面
+    GUC_REFRESH(GUCMainView);
 }
 
 #pragma mark -- tableView DataSource

@@ -18,4 +18,6 @@
 
 -(BOOL)addProject:(ProjectModel*)project;
 
+-(void)deleteProject:(ProjectModel *)project;
+
 @end

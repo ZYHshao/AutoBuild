@@ -13,8 +13,27 @@
 
 +(instancetype)defaultManager;
 
+
+/**
+ 获取所有项目
+
+ @return 项目列表
+ */
 -(NSArray *)getAllProject;
 
+/**
+ 添加一个项目
+
+ @param project 项目对象
+ @return 是否成功 返回字符串 success表示成功 否则为错误信息
+ */
 -(NSString *)addProject:(ProjectModel *)project;
+
+/**
+ 删除一个项目
+
+ @param project 项目对象
+ */
+-(void)deleteProject:(ProjectModel *)project;
 
 @end

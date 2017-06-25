@@ -70,9 +70,23 @@
     if (error) {
         return NO;
     }
-    [_projectArray addObject:project];
+    [self.projectArray addObject:project];
     [self syncDB];
     return YES;
+}
+
+-(void)deleteProject:(ProjectModel *)project{
+    __block int index = -1;
+    [self.projectArray enumerateObjectsUsingBlock:^(ProjectModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.projectPath isEqualToString:project.projectPath]) {
+            index = (int)idx;
+            *stop=YES;
+        }
+    }];
+    if (index>=0) {
+        [self.projectArray removeObjectAtIndex:index];
+        [self syncDB];
+    }
 }
 
 -(void)syncDB{

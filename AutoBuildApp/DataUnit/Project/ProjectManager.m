@@ -11,7 +11,7 @@
 
 @interface ProjectManager()
 
-@property(nonatomic,strong)NSMutableArray * projectArray;
+@property(nonatomic,strong)NSMutableArray<ProjectModel*> * projectArray;
 
 @end
 
@@ -41,6 +41,15 @@
     [self.projectArray addObject:project];
     [[DBManager defaultManager] addProject:project];
     return @"success";
+}
+
+-(void)deleteProject:(ProjectModel *)project{
+    for (int i=(int)self.projectArray.count-1; i>0; i--) {
+        if ([self.projectArray[i].projectPath isEqualToString:project.projectPath]) {
+            [self.projectArray removeObjectAtIndex:i];
+            [[DBManager defaultManager]deleteProject:project];
+        }
+    }
 }
 
 #pragma mark -- setter and getter

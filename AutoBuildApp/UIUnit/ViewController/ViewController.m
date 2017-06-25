@@ -12,10 +12,13 @@
 #import "MainViewTableCellModel.h"
 #import "MainTopBar.h"
 #import "ProjectManager.h"
+#import "GUC.h"
+
 @interface ViewController()
 
 @property (weak) IBOutlet MainTopBar *topBarView;
 @property (nonatomic,strong)NSTableView * tableView;
+@property (nonatomic,strong)NSMenu * itemMenu;
 
 @property (nonatomic,strong)MainViewModel * controlModel;
 
@@ -31,11 +34,11 @@
 }
 
 -(void)dealloc{
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    GUC_REMOVE_OBSERVER(self);
 }
 
 -(void)addNotification{
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadData) name:@"MainViewShouldReloadData" object:nil];
+    GUC_ADD_OBSERVER(self, GUCMainView, NSSelectorFromString(@"reloadData"));
 }
 
 -(void)installData{
@@ -71,6 +74,8 @@
 }
 
 -(void)reloadData{
+    [self.controlModel.projectArray removeAllObjects];
+    [self.controlModel.projectArray addObjectsFromArray:[[ProjectManager defaultManager] getAllProject]];
     [self.controlModel.dataArray removeAllObjects];
     [self.controlModel.dataArray addObjectsFromArray:[self createCellModelWithProject:[[ProjectManager defaultManager] getAllProject]]];
     [self.controlModel reloadData];
@@ -87,6 +92,7 @@
         _tableView.headerView = nil;
         NSTableColumn * column = [[NSTableColumn alloc]initWithIdentifier:@"TaskList"];
         [_tableView addTableColumn:column];
+        _tableView.menu = self.itemMenu;
     }
     return _tableView;
 }
@@ -98,6 +104,18 @@
         _controlModel.owner = self;
     }
     return _controlModel;
+}
+
+-(NSMenu *)itemMenu{
+    if (!_itemMenu) {
+        _itemMenu = [[NSMenu alloc]init];
+        NSMenuItem * item = [[NSMenuItem alloc]init];
+        item.title = @"删除项目";
+        item.target = self.controlModel;
+        item.action = NSSelectorFromString(@"deleteProject");
+        [_itemMenu addItem:item];
+    }
+    return _itemMenu;
 }
 
 @end

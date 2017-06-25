@@ -10,6 +10,7 @@
 #import "AddProjectViewModel.h"
 #import "ProjectManager.h"
 #import "ProjectModel.h"
+#import "GUC.h"
 
 #define WARNING_TITLE_STRING @"警告:您必须填写项目名称"
 #define WARNING_PROJECT_STRING @"警告:您必须选择一个Xcode项目(以xcodeproj或xcworkspace为后缀)"
@@ -91,7 +92,7 @@
         self.warningLabel.hidden = NO;
     }else{
         [self dismissViewController:self];
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"MainViewShouldReloadData" object:nil];
+        GUC_REFRESH(GUCMainView);
     }
 }
 
