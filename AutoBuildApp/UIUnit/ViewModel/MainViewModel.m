@@ -40,9 +40,14 @@
 
 -(void)deleteProject{
     ProjectModel * model =self.projectArray[[self.tableView clickedRow]];
-    [[ProjectManager defaultManager]deleteProject:model];
-    //需要刷新界面
-    GUC_REFRESH(GUCMainView);
+    [GreatUserInterfaceControlAlert alertInWiondow:[NSApplication sharedApplication].keyWindow withTitle:@"警告" message:@"您是否真的要删除此项目" callBack:^(int index){
+        if (index==1) {
+            [[ProjectManager defaultManager]deleteProject:model];
+            //需要刷新界面
+            GUC_REFRESH(GUCMainView);
+        }
+    } buttons:@"取消",@"确认删除", nil];
+    
 }
 
 #pragma mark -- tableView DataSource

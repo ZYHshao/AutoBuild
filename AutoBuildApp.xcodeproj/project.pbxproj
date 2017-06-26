@@ -26,6 +26,7 @@
 		252935ED1EF8C36D00B9DB24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 252935EC1EF8C36D00B9DB24 /* main.m */; };
 		252935F21EF8C36D00B9DB24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 252935F11EF8C36D00B9DB24 /* Assets.xcassets */; };
 		252935F51EF8C36D00B9DB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252935F31EF8C36D00B9DB24 /* Main.storyboard */; };
+		25595CD31F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CD21F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m */; };
 		25E8ECDD1EFCC56C002AC584 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDC1EFCC56C002AC584 /* DBManager.m */; };
 		25E8ECE11EFE9E19002AC584 /* ProjectDetailWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDF1EFE9E19002AC584 /* ProjectDetailWindow.m */; };
 		25E8ECE21EFE9E19002AC584 /* ProjectDetailWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E8ECE01EFE9E19002AC584 /* ProjectDetailWindow.xib */; };
@@ -66,6 +67,8 @@
 		252935F11EF8C36D00B9DB24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		252935F41EF8C36D00B9DB24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		252935F61EF8C36D00B9DB24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25595CD11F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreatUserInterfaceControlAlert.h; sourceTree = "<group>"; };
+		25595CD21F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreatUserInterfaceControlAlert.m; sourceTree = "<group>"; };
 		25E8ECDB1EFCC56C002AC584 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		25E8ECDC1EFCC56C002AC584 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		25E8ECDE1EFE9E19002AC584 /* ProjectDetailWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailWindow.h; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 				25E8ECE71EFF70E6002AC584 /* GUC.h */,
 				25E8ECE41EFF70B2002AC584 /* GreatUserInterfaceControl.h */,
 				25E8ECE51EFF70B2002AC584 /* GreatUserInterfaceControl.m */,
+				25595CD11F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.h */,
+				25595CD21F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25595CD31F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m in Sources */,
 				25E8ECE61EFF70B2002AC584 /* GreatUserInterfaceControl.m in Sources */,
 				251E873C1EFA7F6A0044FA7B /* ColorView.m in Sources */,
 				251E87281EFA67290044FA7B /* WindowController.m in Sources */,

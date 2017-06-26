@@ -13,6 +13,7 @@
 #endif /* GUC_h */
 
 #import "GreatUserInterfaceControl.h"
+#import "GreatUserInterfaceControlAlert.h"
 
 #define GUC_REFRESH(viewId) [[GreatUserInterfaceControl defaultControl]refreshView:viewId]
 
@@ -21,3 +22,5 @@
 #define GUC_REMOVE_OBSERVER_ID(ob,viewId) [[GreatUserInterfaceControl defaultControl] removeObserver:ob inViewID:viewId]
 
 #define GUC_REMOVE_OBSERVER(ob) [[GreatUserInterfaceControl defaultControl]removeObserver:ob]
+
+
