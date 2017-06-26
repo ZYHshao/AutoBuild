@@ -89,6 +89,20 @@
     }
 }
 
+-(void)refreshProject:(ProjectModel *)project{
+    __block int index = -1;
+    [self.projectArray enumerateObjectsUsingBlock:^(ProjectModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.projectPath isEqualToString:project.projectPath]) {
+            index = (int)idx;
+            *stop=YES;
+        }
+    }];
+    if (index>=0) {
+        [self.projectArray replaceObjectAtIndex:index withObject:project];
+        [self syncDB];
+    }
+}
+
 -(void)syncDB{
     NSData * data = [NSKeyedArchiver archivedDataWithRootObject:self.projectArray];
     [data writeToFile:[self dataBasePath] atomically:NO];

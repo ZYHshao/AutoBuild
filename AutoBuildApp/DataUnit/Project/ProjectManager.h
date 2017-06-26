@@ -36,4 +36,12 @@
  */
 -(void)deleteProject:(ProjectModel *)project;
 
+/**
+ 刷新项目配置 会同步数据库
+
+ @param project 项目对象
+ */
+-(void)refreshProject:(ProjectModel *)project;
+
+
 @end

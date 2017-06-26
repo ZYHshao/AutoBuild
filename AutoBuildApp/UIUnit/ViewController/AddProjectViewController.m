@@ -97,17 +97,7 @@
 }
 
 - (IBAction)choiceFile:(NSButton *)sender {
-    NSOpenPanel * panel = [NSOpenPanel openPanel];
-    [panel setMessage:@"请选择Xcoode工程文件"];
-    [panel setPrompt:@"确定"];
-    [panel setCanChooseDirectories:NO];//是否可选择目录
-    [panel setCanCreateDirectories:NO];//是否可创建目录
-    [panel setCanChooseFiles:YES];//是否可选择文件
-    NSString * path = nil;
-    NSInteger result = [panel runModal];
-    if (result == NSFileHandlingPanelOKButton) {
-        path = [panel URL].path;
-    }
+    NSString * path = [GreatUserInterfaveControlPanel modalFilePanelUseDictionary:NO userFile:YES couldCreate:NO withTitle:@"请选择Xcode工程文件" okButton:@"确定"];
     if (path.length>0) {
         self.viewModel.projectPath = path;
         self.viewModel.projectRealName = [[path componentsSeparatedByString:@"/"].lastObject componentsSeparatedByString:@"."].firstObject;

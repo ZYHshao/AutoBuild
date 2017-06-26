@@ -14,6 +14,7 @@
 
 #import "GreatUserInterfaceControl.h"
 #import "GreatUserInterfaceControlAlert.h"
+#import "GreatUserInterfaveControlPanel.h"
 
 #define GUC_REFRESH(viewId) [[GreatUserInterfaceControl defaultControl]refreshView:viewId]
 

@@ -27,6 +27,7 @@
 		252935F21EF8C36D00B9DB24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 252935F11EF8C36D00B9DB24 /* Assets.xcassets */; };
 		252935F51EF8C36D00B9DB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252935F31EF8C36D00B9DB24 /* Main.storyboard */; };
 		25595CD31F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CD21F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m */; };
+		25595CD61F0115B100F32A02 /* GreatUserInterfaveControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CD51F0115B100F32A02 /* GreatUserInterfaveControlPanel.m */; };
 		25E8ECDD1EFCC56C002AC584 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDC1EFCC56C002AC584 /* DBManager.m */; };
 		25E8ECE11EFE9E19002AC584 /* ProjectDetailWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDF1EFE9E19002AC584 /* ProjectDetailWindow.m */; };
 		25E8ECE21EFE9E19002AC584 /* ProjectDetailWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E8ECE01EFE9E19002AC584 /* ProjectDetailWindow.xib */; };
@@ -69,6 +70,8 @@
 		252935F61EF8C36D00B9DB24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25595CD11F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreatUserInterfaceControlAlert.h; sourceTree = "<group>"; };
 		25595CD21F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreatUserInterfaceControlAlert.m; sourceTree = "<group>"; };
+		25595CD41F0115B100F32A02 /* GreatUserInterfaveControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreatUserInterfaveControlPanel.h; sourceTree = "<group>"; };
+		25595CD51F0115B100F32A02 /* GreatUserInterfaveControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreatUserInterfaveControlPanel.m; sourceTree = "<group>"; };
 		25E8ECDB1EFCC56C002AC584 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		25E8ECDC1EFCC56C002AC584 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		25E8ECDE1EFE9E19002AC584 /* ProjectDetailWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailWindow.h; sourceTree = "<group>"; };
@@ -253,6 +256,8 @@
 				25E8ECE51EFF70B2002AC584 /* GreatUserInterfaceControl.m */,
 				25595CD11F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.h */,
 				25595CD21F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m */,
+				25595CD41F0115B100F32A02 /* GreatUserInterfaveControlPanel.h */,
+				25595CD51F0115B100F32A02 /* GreatUserInterfaveControlPanel.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 				25E8ECE11EFE9E19002AC584 /* ProjectDetailWindow.m in Sources */,
 				251E87411EFB96A60044FA7B /* ProjectManager.m in Sources */,
 				251E87441EFB97470044FA7B /* ProjectModel.m in Sources */,
+				25595CD61F0115B100F32A02 /* GreatUserInterfaveControlPanel.m in Sources */,
 				251E87501EFBB31E0044FA7B /* AddProjectViewModel.m in Sources */,
 				251E874D1EFB9B2B0044FA7B /* RouteManager.m in Sources */,
 				251E87481EFB9A530044FA7B /* AddProjectViewController.m in Sources */,

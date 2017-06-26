@@ -20,4 +20,6 @@
 
 -(void)deleteProject:(ProjectModel *)project;
 
+-(void)refreshProject:(ProjectModel*)project;
+
 @end

@@ -7,6 +7,13 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="ProjectDetailWindow">
             <connections>
+                <outlet property="archiveTextField" destination="nhq-MJ-Sh8" id="0ba-ik-uOq"/>
+                <outlet property="buildConfiguration" destination="hRZ-uV-eL8" id="bv1-Fn-bdw"/>
+                <outlet property="ipaTextField" destination="xG8-td-zvP" id="nUB-I0-Dpu"/>
+                <outlet property="saveBuild" destination="HH6-7e-zcb" id="iVO-bF-T6g"/>
+                <outlet property="schemeTextField" destination="919-GX-hMO" id="czt-rl-Ivl"/>
+                <outlet property="selectArchivePath" destination="ahu-Kf-95g" id="ruu-08-n6F"/>
+                <outlet property="selectIpaPath" destination="fa9-o0-sOb" id="WKr-sh-MA1"/>
                 <outlet property="titleLabel" destination="LKn-EN-ww1" id="IUW-fS-LcE"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -120,7 +127,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="RRz-SD-RY3"/>
                                             </constraints>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="fNL-6b-E8a">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="fNL-6b-E8a">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -149,9 +156,9 @@
                                             </buttonCell>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hRZ-uV-eL8">
-                                            <rect key="frame" x="209" y="129" width="76" height="26"/>
+                                            <rect key="frame" x="209" y="129" width="117" height="26"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="71" id="c22-mB-fYp"/>
+                                                <constraint firstAttribute="width" constant="112" id="c22-mB-fYp"/>
                                                 <constraint firstAttribute="height" constant="21" id="wq2-Ti-Ymt"/>
                                             </constraints>
                                             <popUpButtonCell key="cell" type="push" title="Debug" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="IJ5-EX-2zm" id="ckk-yM-1J2">
@@ -175,13 +182,16 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="saveConfigurater:" target="-2" id="g1c-j2-Ow5"/>
+                                            </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xG8-td-zvP">
                                             <rect key="frame" x="211" y="83" width="391" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="Lxr-Gh-vil"/>
                                             </constraints>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="VRP-MC-iOE">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="VRP-MC-iOE">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -267,7 +277,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <size key="minSize" width="747" height="140"/>
-                                    <size key="maxSize" width="747" height="10000000"/>
+                                    <size key="maxSize" width="749" height="10000000"/>
                                     <attributedString key="textStorage">
                                         <fragment content="开始构建你的自动化打包工程吧! Hava fun!">
                                             <attributes>

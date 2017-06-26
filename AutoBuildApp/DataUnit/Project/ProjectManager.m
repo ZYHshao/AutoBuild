@@ -44,10 +44,19 @@
 }
 
 -(void)deleteProject:(ProjectModel *)project{
-    for (int i=(int)self.projectArray.count-1; i>0; i--) {
+    for (int i=(int)self.projectArray.count-1; i>=0; i--) {
         if ([self.projectArray[i].projectPath isEqualToString:project.projectPath]) {
             [self.projectArray removeObjectAtIndex:i];
             [[DBManager defaultManager]deleteProject:project];
+        }
+    }
+}
+
+-(void)refreshProject:(ProjectModel *)project{
+    for (int i=(int)self.projectArray.count-1; i>=0; i--) {
+        if ([self.projectArray[i].projectPath isEqualToString:project.projectPath]) {
+            [self.projectArray replaceObjectAtIndex:i withObject:project];
+            [[DBManager defaultManager]refreshProject:project];
         }
     }
 }
