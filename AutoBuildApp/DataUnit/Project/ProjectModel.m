@@ -21,6 +21,8 @@
         _archivePath = [coder decodeObjectForKey:@"archivePath"];
         _buildConfiguration = [coder decodeObjectForKey:@"buildConfiguration"];
         _ipaPath = [coder decodeObjectForKey:@"ipaPath"];
+        _buildModel = [coder decodeIntegerForKey:@"buildModel"];
+        _projectType = [coder decodeObjectForKey:@"projectType"];
     }
     return self;
 }
@@ -34,6 +36,8 @@
     [coder encodeObject:_archivePath forKey:@"archivePath"];
     [coder encodeObject:_buildConfiguration forKey:@"buildConfiguration"];
     [coder encodeObject:_ipaPath forKey:@"ipaPath"];
+    [coder encodeInteger:_buildModel forKey:@"buildModel"];
+    [coder encodeObject:_projectType forKey:@"projectType"];
 }
 
 
@@ -69,6 +73,20 @@
         _ipaPath=@"";
     }
     return _ipaPath;
+}
+
+-(ProjectBuildModel)buildModel{
+    if (!_buildModel) {
+        _buildModel = ProjectUserOwnerModel;
+    }
+    return _buildModel;
+}
+
+-(NSString *)projectType{
+    if (!_projectType) {
+        _projectType = @"";
+    }
+    return _projectType;
 }
 
 @end

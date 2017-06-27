@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="archiveTextField" destination="nhq-MJ-Sh8" id="0ba-ik-uOq"/>
                 <outlet property="buildConfiguration" destination="hRZ-uV-eL8" id="bv1-Fn-bdw"/>
+                <outlet property="buildModelSelectButton" destination="XPX-Ld-Cgp" id="IuU-RP-AxR"/>
                 <outlet property="ipaTextField" destination="xG8-td-zvP" id="nUB-I0-Dpu"/>
                 <outlet property="saveBuild" destination="HH6-7e-zcb" id="iVO-bF-T6g"/>
                 <outlet property="schemeTextField" destination="919-GX-hMO" id="czt-rl-Ivl"/>
@@ -143,6 +144,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="selectArchivePathAction:" target="-2" id="pbT-tx-NUw"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fa9-o0-sOb">
                                             <rect key="frame" x="654" y="76" width="94" height="32"/>
@@ -154,6 +158,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" size="13" name=".PingFangSC-Regular"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="selectIpaPathAction:" target="-2" id="czK-bQ-Pi5"/>
+                                            </connections>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hRZ-uV-eL8">
                                             <rect key="frame" x="209" y="129" width="117" height="26"/>
@@ -258,6 +265,9 @@
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <action selector="selectBuildModelAction:" target="-2" id="6QV-Jv-xLd"/>
+                        </connections>
                     </popUpButton>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QnQ-VP-VLH">
                         <rect key="frame" x="196" y="204" width="67" height="32"/>

@@ -86,6 +86,11 @@
     newModel.projectName = self.viewModel.projectName;
     newModel.projectPath = self.viewModel.projectPath;
     newModel.projectRealName = self.viewModel.projectRealName;
+    if ([[self.viewModel.projectPath componentsSeparatedByString:@"."].lastObject isEqualToString:@"xcodeproj"]) {
+        newModel.projectType = @"project";
+    }else{
+        newModel.projectType = @"workspace";
+    }
     NSString * result = [[ProjectManager defaultManager] addProject:newModel];
     if (![result isEqualToString:@"success"]) {
         [self.warningLabel setStringValue:result];

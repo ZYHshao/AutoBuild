@@ -29,6 +29,8 @@
 @property (weak) IBOutlet NSButton *saveBuild;
 
 //MARK: Normal
+@property (weak) IBOutlet NSPopUpButton *buildModelSelectButton;
+
 
 @end
 
@@ -57,6 +59,24 @@
         make.height.equalTo(@22);
     }];
 }
+- (IBAction)selectArchivePathAction:(id)sender {
+    NSString * path = [GreatUserInterfaveControlPanel modalFilePanelUseDictionary:YES userFile:NO couldCreate:YES withTitle:@"请选择导出Archive文件包地址" okButton:@"确定"];
+    if (path!=nil) {
+        [self.archiveTextField setStringValue:path];
+    }
+}
+- (IBAction)selectIpaPathAction:(id)sender {
+    NSString * path = [GreatUserInterfaveControlPanel modalFilePanelUseDictionary:YES userFile:NO couldCreate:YES withTitle:@"请选择导出IPA安装包地址" okButton:@"确定"];
+    if (path!=nil) {
+        [self.ipaTextField setStringValue:path];
+    }
+}
+
+- (IBAction)selectBuildModelAction:(NSPopUpButton *)sender {
+    self.project.buildModel = self.buildModelSelectButton.indexOfSelectedItem+1;
+    [[ProjectManager defaultManager]refreshProject:self.project];
+    GUC_REFRESH(GUCMainView);
+}
 
 - (IBAction)saveConfigurater:(NSButton *)sender {
     [self.schemeTextField abortEditing];
@@ -76,6 +96,7 @@
     [self.archiveTextField setStringValue:model.archivePath];
     [self.buildConfiguration selectItemAtIndex:[model.buildConfiguration isEqualToString:@"Debug"]?0:1];
     [self.ipaTextField setStringValue:model.ipaPath];
+    [self.buildModelSelectButton selectItemAtIndex:model.buildModel-1];
 }
 
 

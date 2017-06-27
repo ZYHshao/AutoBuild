@@ -38,19 +38,41 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="bWR-Bf-vYy">
+                    <rect key="frame" x="342" y="22" width="16" height="16"/>
+                </progressIndicator>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gbV-bn-CRN">
+                    <rect key="frame" x="269" y="21" width="65" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="65" id="VrH-GR-ydV"/>
+                    </constraints>
+                    <buttonCell key="cell" type="inline" title="全自动模式" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="7l6-GO-CSK">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystemBold"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="modelChangeAction:" target="c22-O7-iKe" id="apy-8H-W3f"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="bWR-Bf-vYy" secondAttribute="trailing" constant="13" id="KOY-2M-t7u"/>
                 <constraint firstItem="eEX-oR-fOO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="KRR-fd-KVD"/>
                 <constraint firstItem="X3f-Vl-tHl" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="OHm-jR-aLN"/>
+                <constraint firstItem="bWR-Bf-vYy" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="22" id="OKl-1t-1dL"/>
                 <constraint firstItem="X3f-Vl-tHl" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="17" id="OZ2-fY-NaK"/>
                 <constraint firstItem="Y9i-9T-rhD" firstAttribute="centerY" secondItem="X3f-Vl-tHl" secondAttribute="centerY" id="TwY-AM-Ge1"/>
                 <constraint firstAttribute="bottom" secondItem="eEX-oR-fOO" secondAttribute="bottom" id="Vbe-fX-uhF"/>
                 <constraint firstItem="Y9i-9T-rhD" firstAttribute="leading" secondItem="X3f-Vl-tHl" secondAttribute="trailing" constant="16" id="cc1-wU-lVw"/>
+                <constraint firstItem="gbV-bn-CRN" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="jdO-VH-6hC"/>
                 <constraint firstAttribute="trailing" secondItem="eEX-oR-fOO" secondAttribute="trailing" id="oaQ-wu-SSq"/>
+                <constraint firstAttribute="trailing" secondItem="gbV-bn-CRN" secondAttribute="trailing" constant="37" id="piZ-sA-Yda"/>
             </constraints>
             <connections>
                 <outlet property="bottonLine" destination="eEX-oR-fOO" id="wsT-JQ-cgx"/>
                 <outlet property="logoLabel" destination="X3f-Vl-tHl" id="YCh-jb-yUI"/>
+                <outlet property="modelButton" destination="gbV-bn-CRN" id="0T1-aR-z8g"/>
+                <outlet property="progressBar" destination="bWR-Bf-vYy" id="7PV-X2-rAM"/>
                 <outlet property="titleLabel" destination="Y9i-9T-rhD" id="YGv-Dp-4np"/>
             </connections>
             <point key="canvasLocation" x="-79.5" y="165"/>

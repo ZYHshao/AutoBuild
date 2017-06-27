@@ -68,6 +68,15 @@
         MainViewTableCellModel * model = [MainViewTableCellModel new];
         model.projModel = projects[i];
         model.title = projects[i].projectName;
+        NSString * type = @"";
+        if (projects[i].buildModel == ProjectUserOwnerModel) {
+            type=@"自助模式";
+        }else if(projects[i].buildModel == ProjectSemiAuto){
+            type=@"半自动模式";
+        }else{
+            type=@"全自动模式";
+        }
+        model.modelType = type;
         [res addObject:model];
     }
     return [res copy];

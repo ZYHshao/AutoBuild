@@ -14,6 +14,8 @@
 @property (weak) IBOutlet NSTextField *logoLabel;
 @property (weak) IBOutlet ColorView *bottonLine;
 @property (weak) IBOutlet NSTextField *titleLabel;
+@property (weak) IBOutlet NSButton *modelButton;
+@property (weak) IBOutlet NSProgressIndicator *progressBar;
 
 @end
 
@@ -40,10 +42,15 @@
     self.logoLabel.layer.cornerRadius = 20;
 }
 
+- (IBAction)modelChangeAction:(NSButton *)sender {
+    
+}
+
 -(void)updateViewWithModel:(MainViewTableCellModel *)model{
     self.logoLabel.layer.backgroundColor = [NSColor colorWithRed:((arc4random()%200)+55.0)/255.0 green:((arc4random()%200)+55.0)/255.0 blue:((arc4random()%200)+55.0)/255.0 alpha:1].CGColor;
     [self.logoLabel setStringValue:[model.title substringToIndex:1]];
     [self.titleLabel setStringValue:model.title];
+    [self.modelButton setTitle:model.modelType];
 }
 
 

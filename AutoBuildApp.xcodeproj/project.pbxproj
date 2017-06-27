@@ -28,6 +28,9 @@
 		252935F51EF8C36D00B9DB24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252935F31EF8C36D00B9DB24 /* Main.storyboard */; };
 		25595CD31F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CD21F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m */; };
 		25595CD61F0115B100F32A02 /* GreatUserInterfaveControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CD51F0115B100F32A02 /* GreatUserInterfaveControlPanel.m */; };
+		25595CDA1F02061800F32A02 /* XCBuildTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CD91F02061800F32A02 /* XCBuildTaskManager.m */; };
+		25595CDD1F02064400F32A02 /* XCBuildTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CDC1F02064400F32A02 /* XCBuildTask.m */; };
+		25595CE01F02497500F32A02 /* ProjectTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CDF1F02497500F32A02 /* ProjectTask.m */; };
 		25E8ECDD1EFCC56C002AC584 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDC1EFCC56C002AC584 /* DBManager.m */; };
 		25E8ECE11EFE9E19002AC584 /* ProjectDetailWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDF1EFE9E19002AC584 /* ProjectDetailWindow.m */; };
 		25E8ECE21EFE9E19002AC584 /* ProjectDetailWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E8ECE01EFE9E19002AC584 /* ProjectDetailWindow.xib */; };
@@ -72,6 +75,13 @@
 		25595CD21F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreatUserInterfaceControlAlert.m; sourceTree = "<group>"; };
 		25595CD41F0115B100F32A02 /* GreatUserInterfaveControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreatUserInterfaveControlPanel.h; sourceTree = "<group>"; };
 		25595CD51F0115B100F32A02 /* GreatUserInterfaveControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreatUserInterfaveControlPanel.m; sourceTree = "<group>"; };
+		25595CD81F02061800F32A02 /* XCBuildTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBuildTaskManager.h; sourceTree = "<group>"; };
+		25595CD91F02061800F32A02 /* XCBuildTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCBuildTaskManager.m; sourceTree = "<group>"; };
+		25595CDB1F02064400F32A02 /* XCBuildTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBuildTask.h; sourceTree = "<group>"; };
+		25595CDC1F02064400F32A02 /* XCBuildTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCBuildTask.m; sourceTree = "<group>"; };
+		25595CDE1F02497500F32A02 /* ProjectTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTask.h; sourceTree = "<group>"; };
+		25595CDF1F02497500F32A02 /* ProjectTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTask.m; sourceTree = "<group>"; };
+		25595CE41F024D8100F32A02 /* TaskProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskProtocol.h; sourceTree = "<group>"; };
 		25E8ECDB1EFCC56C002AC584 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		25E8ECDC1EFCC56C002AC584 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		25E8ECDE1EFE9E19002AC584 /* ProjectDetailWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailWindow.h; sourceTree = "<group>"; };
@@ -144,6 +154,11 @@
 		251E872E1EFA6B1C0044FA7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25595CE41F024D8100F32A02 /* TaskProtocol.h */,
+				25595CDE1F02497500F32A02 /* ProjectTask.h */,
+				25595CDF1F02497500F32A02 /* ProjectTask.m */,
+				25595CDB1F02064400F32A02 /* XCBuildTask.h */,
+				25595CDC1F02064400F32A02 /* XCBuildTask.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +237,7 @@
 		252935FC1EF8C3F500B9DB24 /* BuildUnit */ = {
 			isa = PBXGroup;
 			children = (
+				25595CD71F0205B000F32A02 /* BuildTools */,
 				251E872E1EFA6B1C0044FA7B /* Model */,
 			);
 			path = BuildUnit;
@@ -237,6 +253,15 @@
 				251E87191EFA62640044FA7B /* ViewModel */,
 			);
 			path = UIUnit;
+			sourceTree = "<group>";
+		};
+		25595CD71F0205B000F32A02 /* BuildTools */ = {
+			isa = PBXGroup;
+			children = (
+				25595CD81F02061800F32A02 /* XCBuildTaskManager.h */,
+				25595CD91F02061800F32A02 /* XCBuildTaskManager.m */,
+			);
+			path = BuildTools;
 			sourceTree = "<group>";
 		};
 		25E8ECDA1EFCC558002AC584 /* DB */ = {
@@ -412,7 +437,9 @@
 				251E87411EFB96A60044FA7B /* ProjectManager.m in Sources */,
 				251E87441EFB97470044FA7B /* ProjectModel.m in Sources */,
 				25595CD61F0115B100F32A02 /* GreatUserInterfaveControlPanel.m in Sources */,
+				25595CDA1F02061800F32A02 /* XCBuildTaskManager.m in Sources */,
 				251E87501EFBB31E0044FA7B /* AddProjectViewModel.m in Sources */,
+				25595CDD1F02064400F32A02 /* XCBuildTask.m in Sources */,
 				251E874D1EFB9B2B0044FA7B /* RouteManager.m in Sources */,
 				251E87481EFB9A530044FA7B /* AddProjectViewController.m in Sources */,
 				252935ED1EF8C36D00B9DB24 /* main.m in Sources */,
@@ -422,6 +449,7 @@
 				251E87391EFA7AA80044FA7B /* MainTopBar.m in Sources */,
 				251E87341EFA6EBE0044FA7B /* MainViewTableCellView.m in Sources */,
 				251E872B1EFA6AA20044FA7B /* MainViewTableCellModel.m in Sources */,
+				25595CE01F02497500F32A02 /* ProjectTask.m in Sources */,
 				252935EA1EF8C36D00B9DB24 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
