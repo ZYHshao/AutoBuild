@@ -14,6 +14,7 @@
 @property (nonatomic,strong)NSString * title;
 @property (nonatomic,strong)ProjectModel * projModel;
 @property (nonatomic,strong)NSString * modelType;
+@property (nonatomic,assign)BOOL isRuning;
 /*...other...*/
 
 @end

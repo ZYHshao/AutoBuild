@@ -26,6 +26,11 @@ typedef NS_ENUM(NSUInteger, ProjectBuildModel) {
 @property(nonatomic,strong)NSString * ipaPath;
 @property(nonatomic,assign)ProjectBuildModel buildModel; //defaule == UserOwnerModel
 
+
+
+#pragma mark -- mark noemal
+@property(nonatomic,strong)NSString * log; //log message
+
 #pragma mark -- inner property
 @property(nonatomic,strong)NSString * projectRealName;
 @property(nonatomic,strong)NSString * projectType; //project or workspace

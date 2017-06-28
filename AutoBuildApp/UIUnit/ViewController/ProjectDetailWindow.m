@@ -11,6 +11,8 @@
 #import "ProjectModel.h"
 #import "ProjectManager.h"
 #import "GUC.h"
+#import "XCBuildTaskManager.h"
+#import "ProjectTask.h"
 
 @interface ProjectDetailWindow ()
 
@@ -30,6 +32,10 @@
 
 //MARK: Normal
 @property (weak) IBOutlet NSPopUpButton *buildModelSelectButton;
+@property (unsafe_unretained) IBOutlet NSTextView *logWindow;
+
+@property (weak) IBOutlet NSButton *startButton;
+@property (weak) IBOutlet NSButton *stopButton;
 
 
 @end
@@ -88,6 +94,16 @@
     GUC_REFRESH(GUCMainView);
 }
 
+- (IBAction)startProject:(id)sender {
+   ProjectTask * task = [[XCBuildTaskManager defaultManager]createProjectTask:self.project];
+    [[XCBuildTaskManager defaultManager] runTask:task stepCallBack:^(int step, NSDictionary * error) {
+        NSLog(@"%d,%@",step,error);
+    }];
+}
+
+- (IBAction)stopProject:(id)sender {
+}
+
 -(void)updateViewWithModel:(ProjectModel *)model{
     self.project = model;
     [self.window.contentView setNeedsLayout:YES];
@@ -97,6 +113,15 @@
     [self.buildConfiguration selectItemAtIndex:[model.buildConfiguration isEqualToString:@"Debug"]?0:1];
     [self.ipaTextField setStringValue:model.ipaPath];
     [self.buildModelSelectButton selectItemAtIndex:model.buildModel-1];
+    self.logWindow.string = model.log;
+    self.startButton.enabled = YES;
+    self.stopButton.enabled = NO;
+    for (ProjectTask * task in [XCBuildTaskManager defaultManager].allRuningProjectTask) {
+        if ([task.projectPath isEqualToString:model.projectPath]) {
+            self.startButton.enabled = NO;
+            self.stopButton.enabled = YES;
+        }
+    }
 }
 
 

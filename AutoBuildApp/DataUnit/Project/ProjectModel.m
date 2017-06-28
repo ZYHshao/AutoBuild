@@ -23,6 +23,7 @@
         _ipaPath = [coder decodeObjectForKey:@"ipaPath"];
         _buildModel = [coder decodeIntegerForKey:@"buildModel"];
         _projectType = [coder decodeObjectForKey:@"projectType"];
+        _log = [coder decodeObjectForKey:@"log"];
     }
     return self;
 }
@@ -38,6 +39,7 @@
     [coder encodeObject:_ipaPath forKey:@"ipaPath"];
     [coder encodeInteger:_buildModel forKey:@"buildModel"];
     [coder encodeObject:_projectType forKey:@"projectType"];
+    [coder encodeObject:_log forKey:@"log"];
 }
 
 
@@ -87,6 +89,13 @@
         _projectType = @"";
     }
     return _projectType;
+}
+
+-(NSString *)log{
+    if (!_log) {
+        _log = @"开始构建你的自动化打包工程吧!Have fun! @^_^@";
+    }
+    return _log;
 }
 
 @end

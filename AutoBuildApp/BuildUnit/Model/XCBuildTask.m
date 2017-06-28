@@ -15,6 +15,7 @@
 @interface XCBuildTask()
 
 @property(nonatomic,weak)ProjectModel * project;
+@property(nonatomic,assign)XCBuildTaskType type;
 
 @end
 
@@ -24,6 +25,7 @@
 -(instancetype)initWithProject:(ProjectModel *)project taskType:(XCBuildTaskType)taskType{
     self = [super init];
     if (self) {
+        self.type = taskType;
         self.project = project;
         [self createFormatString];
     }
@@ -31,7 +33,16 @@
 }
 
 -(void)createFormatString{
-    _scriptFormat = [NSString stringWithFormat:SCRIPT_FORMAT_STRING_CLEAN,self.project.projectType,self.project.projectPath,self.project.scheme,self.project.buildConfiguration];
+    if (self.type == XCBuildTaskTypeClean) {
+        _scriptFormat = [NSString stringWithFormat:SCRIPT_FORMAT_STRING_CLEAN,self.project.projectType,self.project.projectPath,self.project.scheme,self.project.buildConfiguration];
+    }else if (self.type == XCBuildTaskTypeExportArchive){
+    
+    }else if (self.type == XCBuildTaskTypeExportIPA){
+        
+    }else{
+        _scriptFormat = @"";
+    }
+    
 }
 
 @end

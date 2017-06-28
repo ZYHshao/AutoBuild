@@ -11,10 +11,13 @@
                 <outlet property="buildConfiguration" destination="hRZ-uV-eL8" id="bv1-Fn-bdw"/>
                 <outlet property="buildModelSelectButton" destination="XPX-Ld-Cgp" id="IuU-RP-AxR"/>
                 <outlet property="ipaTextField" destination="xG8-td-zvP" id="nUB-I0-Dpu"/>
+                <outlet property="logWindow" destination="3wL-27-xxt" id="MDS-hY-W2O"/>
                 <outlet property="saveBuild" destination="HH6-7e-zcb" id="iVO-bF-T6g"/>
                 <outlet property="schemeTextField" destination="919-GX-hMO" id="czt-rl-Ivl"/>
                 <outlet property="selectArchivePath" destination="ahu-Kf-95g" id="ruu-08-n6F"/>
                 <outlet property="selectIpaPath" destination="fa9-o0-sOb" id="WKr-sh-MA1"/>
+                <outlet property="startButton" destination="QnQ-VP-VLH" id="uhC-Bs-GE3"/>
+                <outlet property="stopButton" destination="saL-mU-lAA" id="KMw-oa-mXC"/>
                 <outlet property="titleLabel" destination="LKn-EN-ww1" id="IUW-fS-LcE"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -275,6 +278,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="startProject:" target="-2" id="UlZ-Zl-0Dh"/>
+                        </connections>
                     </button>
                     <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0r-Wr-899">
                         <rect key="frame" x="31" y="20" width="749" height="142"/>
@@ -289,7 +295,7 @@
                                     <size key="minSize" width="747" height="140"/>
                                     <size key="maxSize" width="749" height="10000000"/>
                                     <attributedString key="textStorage">
-                                        <fragment content="开始构建你的自动化打包工程吧! Hava fun!">
+                                        <fragment content="log">
                                             <attributes>
                                                 <font key="NSFont" size="14" name="PingFangSC-Light"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -319,6 +325,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="13" name=".PingFangSC-Regular"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="stopProject:" target="-2" id="7l5-Hf-S6P"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

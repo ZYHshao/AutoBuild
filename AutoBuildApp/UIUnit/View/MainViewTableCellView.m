@@ -16,6 +16,7 @@
 @property (weak) IBOutlet NSTextField *titleLabel;
 @property (weak) IBOutlet NSButton *modelButton;
 @property (weak) IBOutlet NSProgressIndicator *progressBar;
+@property (weak) IBOutlet NSProgressIndicator *indicator;
 
 @end
 
@@ -51,6 +52,13 @@
     [self.logoLabel setStringValue:[model.title substringToIndex:1]];
     [self.titleLabel setStringValue:model.title];
     [self.modelButton setTitle:model.modelType];
+    if (model.isRuning) {
+        [self.indicator startAnimation:nil];
+        [self.indicator setHidden:NO];
+    }else{
+        [self.indicator stopAnimation:nil];
+        [self.indicator setHidden:YES];
+    }
 }
 
 

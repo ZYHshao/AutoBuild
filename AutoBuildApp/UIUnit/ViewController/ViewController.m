@@ -13,6 +13,8 @@
 #import "MainTopBar.h"
 #import "ProjectManager.h"
 #import "GUC.h"
+#import "XCBuildTaskManager.h"
+#import "ProjectTask.h"
 
 @interface ViewController()
 
@@ -77,6 +79,12 @@
             type=@"全自动模式";
         }
         model.modelType = type;
+        model.isRuning = NO;
+        for (ProjectTask * task in [XCBuildTaskManager defaultManager].allRuningProjectTask) {
+            if ([task.projectPath isEqualToString:projects[i].projectPath]) {
+                model.isRuning = YES;
+            }
+        }
         [res addObject:model];
     }
     return [res copy];

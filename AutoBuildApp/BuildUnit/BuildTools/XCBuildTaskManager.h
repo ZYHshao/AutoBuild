@@ -16,6 +16,9 @@
 +(instancetype)defaultManager;
 
 
+@property(nonatomic,strong)NSMutableArray<ProjectTask *> * allRuningProjectTask;
+
+
 /**
  创建一个工程自动化任务
 
@@ -31,7 +34,7 @@
  @param task 任务对象
  @param stepCallBack 进度回调
  */
--(void)runTask:(ProjectTask *)task stepCallBack:(void(^)())stepCallBack;
+-(void)runTask:(ProjectTask *)task stepCallBack:(void(^)(int , NSDictionary*))stepCallBack;
 
 
 /**

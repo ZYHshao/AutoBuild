@@ -29,8 +29,14 @@
 
 -(NSArray *)createTaskGroup{
     NSMutableArray * array = [[NSMutableArray alloc]init];
-    XCBuildTask * taskBuild = [[XCBuildTask alloc]initWithProject:self.project taskType:XCBuildTaskTypeClean];
-    [array addObject:taskBuild];
+    if (self.project.buildModel == ProjectUserOwnerModel) {
+        XCBuildTask * taskClean = [[XCBuildTask alloc]initWithProject:self.project taskType:XCBuildTaskTypeClean];
+        XCBuildTask * taskArchive = [[XCBuildTask alloc]initWithProject:self.project taskType:XCBuildTaskTypeExportArchive];
+        XCBuildTask * taskIPA = [[XCBuildTask alloc]initWithProject:self.project taskType:XCBuildTaskTypeExportIPA];
+        [array addObject:taskClean];
+        [array addObject:taskArchive];
+        [array addObject:taskIPA];
+    }
     return array;
 }
 

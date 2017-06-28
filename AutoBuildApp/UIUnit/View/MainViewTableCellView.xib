@@ -54,6 +54,9 @@
                         <action selector="modelChangeAction:" target="c22-O7-iKe" id="apy-8H-W3f"/>
                     </connections>
                 </button>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="yPJ-sm-VDd">
+                    <rect key="frame" x="238" y="22" width="16" height="16"/>
+                </progressIndicator>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="bWR-Bf-vYy" secondAttribute="trailing" constant="13" id="KOY-2M-t7u"/>
@@ -63,13 +66,16 @@
                 <constraint firstItem="X3f-Vl-tHl" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="17" id="OZ2-fY-NaK"/>
                 <constraint firstItem="Y9i-9T-rhD" firstAttribute="centerY" secondItem="X3f-Vl-tHl" secondAttribute="centerY" id="TwY-AM-Ge1"/>
                 <constraint firstAttribute="bottom" secondItem="eEX-oR-fOO" secondAttribute="bottom" id="Vbe-fX-uhF"/>
+                <constraint firstAttribute="trailing" secondItem="yPJ-sm-VDd" secondAttribute="trailing" constant="117" id="WEN-mL-IGr"/>
                 <constraint firstItem="Y9i-9T-rhD" firstAttribute="leading" secondItem="X3f-Vl-tHl" secondAttribute="trailing" constant="16" id="cc1-wU-lVw"/>
                 <constraint firstItem="gbV-bn-CRN" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="jdO-VH-6hC"/>
+                <constraint firstItem="yPJ-sm-VDd" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="lww-os-Xhf"/>
                 <constraint firstAttribute="trailing" secondItem="eEX-oR-fOO" secondAttribute="trailing" id="oaQ-wu-SSq"/>
                 <constraint firstAttribute="trailing" secondItem="gbV-bn-CRN" secondAttribute="trailing" constant="37" id="piZ-sA-Yda"/>
             </constraints>
             <connections>
                 <outlet property="bottonLine" destination="eEX-oR-fOO" id="wsT-JQ-cgx"/>
+                <outlet property="indicator" destination="yPJ-sm-VDd" id="416-vx-hYQ"/>
                 <outlet property="logoLabel" destination="X3f-Vl-tHl" id="YCh-jb-yUI"/>
                 <outlet property="modelButton" destination="gbV-bn-CRN" id="0T1-aR-z8g"/>
                 <outlet property="progressBar" destination="bWR-Bf-vYy" id="7PV-X2-rAM"/>
