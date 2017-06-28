@@ -6,16 +6,16 @@
 //  Copyright © 2017年 jaki. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "TaskProtocol.h"
+
+#import "BaseTask.h"
 
 @class ProjectModel;
 
-@interface ProjectTask : NSObject
+@interface ProjectTask :BaseTask
 
 -(instancetype)initWithProject:(ProjectModel *)project;
 
--(NSArray<TaskProtocol> *)createTaskGroup;
+-(NSArray<BaseTask *> *)createTaskGroup;
 
 
 @property(nonatomic,strong,readonly)NSString* projectPath;

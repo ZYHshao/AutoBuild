@@ -14,11 +14,18 @@
 #import "XCBuildTaskManager.h"
 #import "ProjectTask.h"
 
+
+#define MODEL_USER_WONER_TIP @"自助模式下将只进行工程的自动化打包，必须配置编译模块。"
+#define MODEL_SEMI_AUTO_TIP @"半自动模式下将进行工程的打包与发布，必须配置编译模块与发布模块。"
+#define MODEL_AOTU_TIP @"全自动模式将帮您进行工程的代码更新，打包，发布等一系列操作，必须配置编译、GIT与发布模块。"
+
 @interface ProjectDetailWindow ()
 
 @property (nonatomic,strong)ProjectModel * project;
 
 @property (weak) IBOutlet NSTextField *titleLabel;
+
+@property (nonatomic,strong)NSArray * modelTipMessageArray;
 
 
 //MARK: build
@@ -37,6 +44,7 @@
 @property (weak) IBOutlet NSButton *startButton;
 @property (weak) IBOutlet NSButton *stopButton;
 
+@property (weak) IBOutlet NSTextField *modelTipLabel;
 
 @end
 
@@ -80,6 +88,7 @@
 
 - (IBAction)selectBuildModelAction:(NSPopUpButton *)sender {
     self.project.buildModel = self.buildModelSelectButton.indexOfSelectedItem+1;
+    [self.modelTipLabel setStringValue:self.modelTipMessageArray[self.buildModelSelectButton.indexOfSelectedItem]];
     [[ProjectManager defaultManager]refreshProject:self.project];
     GUC_REFRESH(GUCMainView);
 }
@@ -116,6 +125,7 @@
     self.logWindow.string = model.log;
     self.startButton.enabled = YES;
     self.stopButton.enabled = NO;
+    [self.modelTipLabel setStringValue:self.modelTipMessageArray[model.buildModel-1]];
     for (ProjectTask * task in [XCBuildTaskManager defaultManager].allRuningProjectTask) {
         if ([task.projectPath isEqualToString:model.projectPath]) {
             self.startButton.enabled = NO;
@@ -124,5 +134,12 @@
     }
 }
 
+#pragma mark -- setter and getter
+-(NSArray *)modelTipMessageArray{
+    if (!_modelTipMessageArray) {
+        _modelTipMessageArray = @[MODEL_USER_WONER_TIP,MODEL_SEMI_AUTO_TIP,MODEL_AOTU_TIP];
+    }
+    return _modelTipMessageArray;
+}
 
 @end

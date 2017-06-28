@@ -27,7 +27,7 @@
     return self;
 }
 
--(NSArray *)createTaskGroup{
+-(NSArray<BaseTask*> *)createTaskGroup{
     NSMutableArray * array = [[NSMutableArray alloc]init];
     if (self.project.buildModel == ProjectUserOwnerModel) {
         XCBuildTask * taskClean = [[XCBuildTask alloc]initWithProject:self.project taskType:XCBuildTaskTypeClean];

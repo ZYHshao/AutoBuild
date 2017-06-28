@@ -13,53 +13,5 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AutoBuildApp/BuildUnit/BuildTools/XCBuildTaskManager.m"
-            timestampString = "520316332.069648"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-runTask:stepCallBack:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[XCBuildTaskManager runTask:stepCallBack:]"
-                  moduleName = "AutoBuildApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vip/Desktop/AutoBuildApp/AutoBuild/AutoBuildApp/BuildUnit/BuildTools/XCBuildTaskManager.m"
-                  timestampString = "520316334.588013"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[XCBuildTaskManager runTask:stepCallBack:]"
-                  moduleName = "AutoBuildApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vip/Desktop/AutoBuildApp/AutoBuild/AutoBuildApp/BuildUnit/BuildTools/XCBuildTaskManager.m"
-                  timestampString = "520316334.58926"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "152">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

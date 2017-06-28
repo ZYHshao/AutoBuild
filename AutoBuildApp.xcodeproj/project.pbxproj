@@ -31,6 +31,7 @@
 		25595CDA1F02061800F32A02 /* XCBuildTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CD91F02061800F32A02 /* XCBuildTaskManager.m */; };
 		25595CDD1F02064400F32A02 /* XCBuildTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CDC1F02064400F32A02 /* XCBuildTask.m */; };
 		25595CE01F02497500F32A02 /* ProjectTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CDF1F02497500F32A02 /* ProjectTask.m */; };
+		25D4796E1F0367AF00375130 /* BaseTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D4796D1F0367AF00375130 /* BaseTask.m */; };
 		25E8ECDD1EFCC56C002AC584 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDC1EFCC56C002AC584 /* DBManager.m */; };
 		25E8ECE11EFE9E19002AC584 /* ProjectDetailWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDF1EFE9E19002AC584 /* ProjectDetailWindow.m */; };
 		25E8ECE21EFE9E19002AC584 /* ProjectDetailWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E8ECE01EFE9E19002AC584 /* ProjectDetailWindow.xib */; };
@@ -82,6 +83,8 @@
 		25595CDE1F02497500F32A02 /* ProjectTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTask.h; sourceTree = "<group>"; };
 		25595CDF1F02497500F32A02 /* ProjectTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTask.m; sourceTree = "<group>"; };
 		25595CE41F024D8100F32A02 /* TaskProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskProtocol.h; sourceTree = "<group>"; };
+		25D4796C1F0367AF00375130 /* BaseTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTask.h; sourceTree = "<group>"; };
+		25D4796D1F0367AF00375130 /* BaseTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTask.m; sourceTree = "<group>"; };
 		25E8ECDB1EFCC56C002AC584 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		25E8ECDC1EFCC56C002AC584 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		25E8ECDE1EFE9E19002AC584 /* ProjectDetailWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailWindow.h; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				25595CE41F024D8100F32A02 /* TaskProtocol.h */,
+				25D4796C1F0367AF00375130 /* BaseTask.h */,
+				25D4796D1F0367AF00375130 /* BaseTask.m */,
 				25595CDE1F02497500F32A02 /* ProjectTask.h */,
 				25595CDF1F02497500F32A02 /* ProjectTask.m */,
 				25595CDB1F02064400F32A02 /* XCBuildTask.h */,
@@ -449,6 +454,7 @@
 				251E87391EFA7AA80044FA7B /* MainTopBar.m in Sources */,
 				251E87341EFA6EBE0044FA7B /* MainViewTableCellView.m in Sources */,
 				251E872B1EFA6AA20044FA7B /* MainViewTableCellModel.m in Sources */,
+				25D4796E1F0367AF00375130 /* BaseTask.m in Sources */,
 				25595CE01F02497500F32A02 /* ProjectTask.m in Sources */,
 				252935EA1EF8C36D00B9DB24 /* AppDelegate.m in Sources */,
 			);

@@ -12,6 +12,7 @@
                 <outlet property="buildModelSelectButton" destination="XPX-Ld-Cgp" id="IuU-RP-AxR"/>
                 <outlet property="ipaTextField" destination="xG8-td-zvP" id="nUB-I0-Dpu"/>
                 <outlet property="logWindow" destination="3wL-27-xxt" id="MDS-hY-W2O"/>
+                <outlet property="modelTipLabel" destination="hEg-9j-jXg" id="k1s-HW-qfq"/>
                 <outlet property="saveBuild" destination="HH6-7e-zcb" id="iVO-bF-T6g"/>
                 <outlet property="schemeTextField" destination="919-GX-hMO" id="czt-rl-Ivl"/>
                 <outlet property="selectArchivePath" destination="ahu-Kf-95g" id="ruu-08-n6F"/>
@@ -274,6 +275,10 @@
                     </popUpButton>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QnQ-VP-VLH">
                         <rect key="frame" x="196" y="204" width="67" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="IKf-Sb-4LM"/>
+                            <constraint firstAttribute="height" constant="21" id="efQ-8o-cGC"/>
+                        </constraints>
                         <buttonCell key="cell" type="push" title="启动" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="irr-mH-rXo">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -321,6 +326,10 @@
                     </progressIndicator>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="saL-mU-lAA">
                         <rect key="frame" x="293" y="204" width="67" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="ESE-6u-5ek"/>
+                            <constraint firstAttribute="width" constant="55" id="bbv-qI-0SN"/>
+                        </constraints>
                         <buttonCell key="cell" type="push" title="停止" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kdm-39-DLF">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -329,22 +338,36 @@
                             <action selector="stopProject:" target="-2" id="7l5-Hf-S6P"/>
                         </connections>
                     </button>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="hEg-9j-jXg">
+                        <rect key="frame" x="385" y="196" width="397" height="42"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="Wet-58-twV"/>
+                        </constraints>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="自助模式下必须配置" id="Lpn-zU-7g6">
+                            <font key="font" size="13" name="AmericanTypewriter-CondensedLight"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="s0r-Wr-899" secondAttribute="bottom" constant="20" id="4VJ-Am-boG"/>
                     <constraint firstItem="Cnx-Wn-oUc" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="8gy-NB-QEr"/>
+                    <constraint firstItem="hEg-9j-jXg" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="362" id="Ayu-v6-tTh"/>
                     <constraint firstItem="QnQ-VP-VLH" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="202" id="CwO-28-k0z"/>
                     <constraint firstItem="Cnx-Wn-oUc" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="Fdw-Ol-ZIP"/>
                     <constraint firstAttribute="trailing" secondItem="s0r-Wr-899" secondAttribute="trailing" constant="20" id="KTe-UK-Z3S"/>
                     <constraint firstItem="SCR-W0-wEQ" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="31" id="LCW-N2-nNq"/>
                     <constraint firstItem="Czl-Ep-1Lv" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="48" id="P0r-7V-h12"/>
                     <constraint firstItem="Czl-Ep-1Lv" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="7" id="Q5l-Un-4rv"/>
+                    <constraint firstItem="hEg-9j-jXg" firstAttribute="leading" secondItem="saL-mU-lAA" secondAttribute="trailing" constant="33" id="QXl-Ec-5kw"/>
                     <constraint firstItem="saL-mU-lAA" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="368" id="TpD-j5-po1"/>
                     <constraint firstItem="s0r-Wr-899" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="438" id="Ty8-Hv-M1Z"/>
                     <constraint firstAttribute="trailing" secondItem="SCR-W0-wEQ" secondAttribute="trailing" constant="20" id="U1Z-ZB-O5T"/>
                     <constraint firstItem="XPX-Ld-Cgp" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="31" id="aRC-6i-WaN"/>
                     <constraint firstItem="SCR-W0-wEQ" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="412" id="fNV-m8-rSp"/>
                     <constraint firstItem="s0r-Wr-899" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="31" id="fPj-jY-6p6"/>
+                    <constraint firstAttribute="trailing" secondItem="hEg-9j-jXg" secondAttribute="trailing" constant="20" id="gz1-dn-i8g"/>
                     <constraint firstItem="saL-mU-lAA" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="299" id="htP-pC-Iua"/>
                     <constraint firstAttribute="trailing" secondItem="Czl-Ep-1Lv" secondAttribute="trailing" constant="7" id="irJ-iw-Vt3"/>
                     <constraint firstAttribute="trailing" secondItem="Cnx-Wn-oUc" secondAttribute="trailing" id="r5B-N0-Yo1"/>

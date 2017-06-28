@@ -8,8 +8,7 @@
 
 #import "XCBuildTaskManager.h"
 #import "ProjectTask.h"
-#import "TaskProtocol.h"
-#import "XCBuildTask.h"
+#import "BaseTask.h"
 @interface XCBuildTaskManager()
 
 @property(nonatomic,strong)NSMutableDictionary<NSString*,NSOperationQueue*> * opreationQueueMap;
@@ -68,11 +67,11 @@
     queue.maxConcurrentOperationCount = 1;
     [self.opreationQueueMap setObject:queue forKey:task.projectPath];
     [self.allRuningProjectTask addObject:task];
-    NSArray<TaskProtocol> * array = [task createTaskGroup];
+    NSArray<BaseTask*> * array = [task createTaskGroup];
     [queue addOperationWithBlock:^{
         for (int i=0; i<array.count; i++) {
             NSDictionary * errorDic = nil;
-            NSAppleScript * script = [[NSAppleScript alloc]initWithSource:((XCBuildTask*)array[i]).scriptFormat];
+            NSAppleScript * script = [[NSAppleScript alloc]initWithSource:array[i].scriptFormat];
             [script executeAndReturnError:&errorDic];
             stepCallBack(i,errorDic);
             //如果有错误 取消掉后续任务
