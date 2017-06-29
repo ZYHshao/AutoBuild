@@ -36,6 +36,7 @@
         [array addObject:taskClean];
         [array addObject:taskArchive];
         [array addObject:taskIPA];
+        self.totalTask = 3;
     }
     return array;
 }

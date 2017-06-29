@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TaskProtocol.h"
+#import "BaseTask.h"
 
 
 
@@ -19,14 +19,10 @@ typedef NS_ENUM(NSUInteger, XCBuildTaskType) {
     XCBuildTaskTypeExportIPA,
 };
 
-@interface XCBuildTask : NSObject<TaskProtocol>
+@interface XCBuildTask : BaseTask
 
 -(instancetype)initWithProject:(ProjectModel *)project taskType:(XCBuildTaskType)taskType;
 
 
-/**
- 格式化的任务脚本
- */
-@property (nonatomic,strong,readonly)NSString * scriptFormat;
 
 @end

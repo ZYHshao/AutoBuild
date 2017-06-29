@@ -11,8 +11,10 @@
                 <outlet property="buildConfiguration" destination="hRZ-uV-eL8" id="bv1-Fn-bdw"/>
                 <outlet property="buildModelSelectButton" destination="XPX-Ld-Cgp" id="IuU-RP-AxR"/>
                 <outlet property="ipaTextField" destination="xG8-td-zvP" id="nUB-I0-Dpu"/>
+                <outlet property="ipaTypeButton" destination="6CQ-I6-AoF" id="Lgq-fe-wah"/>
                 <outlet property="logWindow" destination="3wL-27-xxt" id="MDS-hY-W2O"/>
                 <outlet property="modelTipLabel" destination="hEg-9j-jXg" id="k1s-HW-qfq"/>
+                <outlet property="progressBar" destination="SCR-W0-wEQ" id="TLZ-jU-PGn"/>
                 <outlet property="saveBuild" destination="HH6-7e-zcb" id="iVO-bF-T6g"/>
                 <outlet property="schemeTextField" destination="919-GX-hMO" id="czt-rl-Ivl"/>
                 <outlet property="selectArchivePath" destination="ahu-Kf-95g" id="ruu-08-n6F"/>
@@ -208,6 +210,39 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joL-Xc-Q0T">
+                                            <rect key="frame" x="378" y="133" width="106" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="17" id="acb-cl-iCk"/>
+                                                <constraint firstAttribute="width" constant="102" id="slh-bW-gyv"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="导出ipa包类型:" id="gcT-nj-AQp">
+                                                <font key="font" size="13" name=".PingFangSC-Medium"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6CQ-I6-AoF">
+                                            <rect key="frame" x="493" y="128" width="165" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="CCd-6a-X26"/>
+                                                <constraint firstAttribute="width" constant="160" id="hjD-BC-juq"/>
+                                            </constraints>
+                                            <popUpButtonCell key="cell" type="push" title="appstore 发布包" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Ehn-PK-LRL" id="Jqi-y2-u1M">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="menu"/>
+                                                <menu key="menu" id="cMR-1x-Lgh">
+                                                    <items>
+                                                        <menuItem title="appstore 发布包" id="Ehn-PK-LRL"/>
+                                                        <menuItem title="ad-hoc测试包" state="on" id="CcJ-RG-Y8W"/>
+                                                        <menuItem title="Develop测试包" id="Ctd-iC-dQe"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <action selector="selectIPATypeAction:" target="-2" id="za6-vi-zBf"/>
+                                            </connections>
+                                        </popUpButton>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="fa9-o0-sOb" secondAttribute="trailing" constant="38" id="1My-aF-SFf"/>
@@ -225,15 +260,19 @@
                                         <constraint firstAttribute="trailing" secondItem="nhq-MJ-Sh8" secondAttribute="trailing" constant="178" id="JiD-5C-bLg"/>
                                         <constraint firstAttribute="trailing" secondItem="xG8-td-zvP" secondAttribute="trailing" constant="178" id="KDq-aq-7WD"/>
                                         <constraint firstItem="nhq-MJ-Sh8" firstAttribute="leading" secondItem="UvF-5O-4gH" secondAttribute="leading" constant="211" id="L9s-eV-BFS"/>
+                                        <constraint firstItem="joL-Xc-Q0T" firstAttribute="leading" secondItem="UvF-5O-4gH" secondAttribute="leading" constant="380" id="Ncn-Gy-AG7"/>
                                         <constraint firstItem="LOd-kh-leO" firstAttribute="leading" secondItem="UvF-5O-4gH" secondAttribute="leading" constant="41" id="O4r-QI-tdh"/>
                                         <constraint firstItem="ENw-RO-JaO" firstAttribute="top" secondItem="UvF-5O-4gH" secondAttribute="top" constant="22" id="Q0g-3Q-uV9"/>
+                                        <constraint firstItem="6CQ-I6-AoF" firstAttribute="top" secondItem="UvF-5O-4gH" secondAttribute="top" constant="118" id="Q5u-3n-Ni2"/>
                                         <constraint firstItem="919-GX-hMO" firstAttribute="leading" secondItem="UvF-5O-4gH" secondAttribute="leading" constant="211" id="QI8-Vh-vEf"/>
                                         <constraint firstItem="hRZ-uV-eL8" firstAttribute="leading" secondItem="UvF-5O-4gH" secondAttribute="leading" constant="211" id="WB4-XJ-NyY"/>
+                                        <constraint firstItem="joL-Xc-Q0T" firstAttribute="top" secondItem="UvF-5O-4gH" secondAttribute="top" constant="120" id="h31-37-f8u"/>
                                         <constraint firstItem="KE4-sF-tvZ" firstAttribute="top" secondItem="UvF-5O-4gH" secondAttribute="top" constant="119" id="hdO-OS-Gyn"/>
                                         <constraint firstAttribute="trailing" secondItem="HH6-7e-zcb" secondAttribute="trailing" constant="52" id="maw-uh-Gbc"/>
                                         <constraint firstAttribute="trailing" secondItem="ahu-Kf-95g" secondAttribute="trailing" constant="38" id="mq7-2G-d2y"/>
                                         <constraint firstItem="hZF-UH-lM0" firstAttribute="top" secondItem="UvF-5O-4gH" secondAttribute="top" constant="168" id="rOx-mh-Ovs"/>
                                         <constraint firstItem="xG8-td-zvP" firstAttribute="leading" secondItem="UvF-5O-4gH" secondAttribute="leading" constant="211" id="sN8-Nv-ahc"/>
+                                        <constraint firstItem="6CQ-I6-AoF" firstAttribute="leading" secondItem="UvF-5O-4gH" secondAttribute="leading" constant="495" id="uUo-Wp-u1u"/>
                                         <constraint firstItem="hRZ-uV-eL8" firstAttribute="top" secondItem="UvF-5O-4gH" secondAttribute="top" constant="117" id="zHn-1z-rfs"/>
                                     </constraints>
                                 </view>
@@ -321,7 +360,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="SCR-W0-wEQ">
+                    <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="SCR-W0-wEQ">
                         <rect key="frame" x="31" y="169" width="749" height="20"/>
                     </progressIndicator>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="saL-mU-lAA">

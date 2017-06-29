@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, ProjectBuildModel) {
 @property(nonatomic,strong)NSString * buildConfiguration;//Debug or Release default debug
 @property(nonatomic,strong)NSString * ipaPath;
 @property(nonatomic,assign)ProjectBuildModel buildModel; //defaule == UserOwnerModel
-
+@property(nonatomic,strong)NSString * ipaType;// ad-hoc app-store development
 
 
 #pragma mark -- mark noemal
@@ -34,5 +34,8 @@ typedef NS_ENUM(NSUInteger, ProjectBuildModel) {
 #pragma mark -- inner property
 @property(nonatomic,strong)NSString * projectRealName;
 @property(nonatomic,strong)NSString * projectType; //project or workspace
+
+
+-(BOOL)couldStartPeoject:(NSString **)error;
 
 @end

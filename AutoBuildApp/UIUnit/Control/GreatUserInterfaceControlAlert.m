@@ -25,15 +25,26 @@
     va_end(list);//关闭列表指针
     [alert beginSheetModalForWindow:window completionHandler:^(NSModalResponse returnCode) {
         if (returnCode==NSAlertFirstButtonReturn) {
-            callBack(0);
+            if (callBack) {
+                callBack(0);
+            }
+            return ;
         }
         if (returnCode==NSAlertSecondButtonReturn) {
-            callBack(1);
+            if (callBack) {
+                callBack(1);
+            }
+            return;
         }
         if (returnCode==NSAlertThirdButtonReturn) {
-            callBack(2);
+            if (callBack) {
+                callBack(2);
+            }
+            return;
         }
-        callBack((int)returnCode);
+        if (callBack) {
+             callBack((int)returnCode);
+        }
     }];
 }
 

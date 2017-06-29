@@ -36,6 +36,7 @@
 @property (weak) IBOutlet NSButton *selectArchivePath;
 @property (weak) IBOutlet NSButton *selectIpaPath;
 @property (weak) IBOutlet NSButton *saveBuild;
+@property (weak) IBOutlet NSPopUpButton *ipaTypeButton;
 
 //MARK: Normal
 @property (weak) IBOutlet NSPopUpButton *buildModelSelectButton;
@@ -45,6 +46,7 @@
 @property (weak) IBOutlet NSButton *stopButton;
 
 @property (weak) IBOutlet NSTextField *modelTipLabel;
+@property (weak) IBOutlet NSProgressIndicator *progressBar;
 
 @end
 
@@ -92,6 +94,19 @@
     [[ProjectManager defaultManager]refreshProject:self.project];
     GUC_REFRESH(GUCMainView);
 }
+- (IBAction)selectIPATypeAction:(NSPopUpButton *)sender {
+    NSString * type = @"ad-hoc";
+    if (sender.indexOfSelectedItem==0) {
+        type = @"app-store";
+    }else if (sender.indexOfSelectedItem==1){
+        type = @"ad-hoc";
+    }else{
+        type = @"development";
+    }
+    self.project.ipaType = type;
+    [[ProjectManager defaultManager]refreshProject:self.project];
+    GUC_REFRESH(GUCMainView);
+}
 
 - (IBAction)saveConfigurater:(NSButton *)sender {
     [self.schemeTextField abortEditing];
@@ -104,10 +119,30 @@
 }
 
 - (IBAction)startProject:(id)sender {
-   ProjectTask * task = [[XCBuildTaskManager defaultManager]createProjectTask:self.project];
-    [[XCBuildTaskManager defaultManager] runTask:task stepCallBack:^(int step, NSDictionary * error) {
-        NSLog(@"%d,%@",step,error);
-    }];
+    NSString * error = nil;
+    if ([self.project couldStartPeoject:&error]) {
+        ProjectTask * task = [[XCBuildTaskManager defaultManager]createProjectTask:self.project];
+        self.project.log = nil;
+        self.logWindow.string = self.project.log;
+        [[XCBuildTaskManager defaultManager] runTask:task stepCallBack:^(int step, NSDictionary * error,CGFloat progress,NSString * log,NSString * info) {
+            [self.progressBar setDoubleValue:progress];
+            if (error==nil) {
+                NSString * logString = [NSString stringWithFormat:@"%@\n\n****\n****\n%@",self.project.log,log];
+                NSString * finishString = [NSString stringWithFormat:@"\n===========\n===========%@已完成@^_^@\n",info];
+                self.project.log = [NSString stringWithFormat:@"%@%@",logString,finishString];
+            }else{
+                NSString * logString = [NSString stringWithFormat:@"%@\n错误：\n!!!!\n!!!!\n%@",self.project.log,error];
+                NSString * finishString = [NSString stringWithFormat:@"\n!!!!!!!!!!!\n!!!!!!!!!!!!%@发生错误：@#_#@\n",info];
+                self.project.log = [NSString stringWithFormat:@"%@%@",logString,finishString];
+            }
+            [[ProjectManager defaultManager]refreshProject:self.project];
+            self.logWindow.string = self.project.log;
+            [self.logWindow scrollToEndOfDocument:nil];
+        }];
+    }else{
+        [GreatUserInterfaceControlAlert alertInWiondow:self.window withTitle:@"警告" message:error callBack:nil buttons:@"好的", nil];
+    }
+   
 }
 
 - (IBAction)stopProject:(id)sender {
@@ -123,8 +158,18 @@
     [self.ipaTextField setStringValue:model.ipaPath];
     [self.buildModelSelectButton selectItemAtIndex:model.buildModel-1];
     self.logWindow.string = model.log;
+    [self.logWindow scrollToEndOfDocument:nil];
     self.startButton.enabled = YES;
     self.stopButton.enabled = NO;
+    int index = 0;
+    if ([model.ipaType isEqualToString:@"ad-hoc"]) {
+        index = 1;
+    }else if ([model.ipaType isEqualToString:@"app-store"]){
+        index = 0;
+    }else{
+        index = 2;
+    }
+    [self.ipaTypeButton selectItemAtIndex:index];
     [self.modelTipLabel setStringValue:self.modelTipMessageArray[model.buildModel-1]];
     for (ProjectTask * task in [XCBuildTaskManager defaultManager].allRuningProjectTask) {
         if ([task.projectPath isEqualToString:model.projectPath]) {

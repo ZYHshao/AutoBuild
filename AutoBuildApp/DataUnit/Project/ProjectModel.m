@@ -24,6 +24,7 @@
         _buildModel = [coder decodeIntegerForKey:@"buildModel"];
         _projectType = [coder decodeObjectForKey:@"projectType"];
         _log = [coder decodeObjectForKey:@"log"];
+        _ipaType = [coder decodeObjectForKey:@"ipaType"];
     }
     return self;
 }
@@ -40,6 +41,7 @@
     [coder encodeInteger:_buildModel forKey:@"buildModel"];
     [coder encodeObject:_projectType forKey:@"projectType"];
     [coder encodeObject:_log forKey:@"log"];
+    [coder encodeObject:_ipaType forKey:@"ipaType"];
 }
 
 
@@ -96,6 +98,47 @@
         _log = @"开始构建你的自动化打包工程吧!Have fun! @^_^@";
     }
     return _log;
+}
+
+-(NSString *)ipaType{
+    if (!_ipaType) {
+        _ipaType = @"ad-hoc";
+    }
+    return _ipaType;
+}
+
+#pragma mark -- mathod
+-(BOOL)couldStartPeoject:(NSString *__autoreleasing *)error{
+    switch (self.buildModel) {
+        case ProjectUserOwnerModel:
+        {
+            if (self.scheme.length==0) {
+                *error = @"必须填写项目的Scheme";
+                return NO;
+            }
+            if (self.archivePath.length==0) {
+                *error = @"必须设置Archive文件的输出目录";
+                return NO;
+            }
+            if (self.ipaPath.length==0) {
+                *error = @"必须设置IPA文件的输出目录";
+                return NO;
+            }
+            return YES;
+        }
+            break;
+        case ProjectSemiAuto:
+        {
+            
+        }
+            break;
+        case ProjectAuto:
+        {
+            
+        }
+            break;
+    }
+    return NO;
 }
 
 @end

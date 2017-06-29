@@ -7,17 +7,22 @@
 //
 
 
-#import "BaseTask.h"
+#import <Foundation/Foundation.h>
 
 @class ProjectModel;
+@class BaseTask;
 
-@interface ProjectTask :BaseTask
+@interface ProjectTask :NSObject
 
 -(instancetype)initWithProject:(ProjectModel *)project;
 
 -(NSArray<BaseTask *> *)createTaskGroup;
 
 
-@property(nonatomic,strong,readonly)NSString* projectPath;
+@property (nonatomic,strong,readonly)NSString* projectPath;
+
+@property (nonatomic,assign)CGFloat progress;//0-1
+
+@property (nonatomic,assign)int totalTask;
 
 @end

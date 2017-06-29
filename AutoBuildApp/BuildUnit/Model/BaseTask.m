@@ -11,5 +11,6 @@
 @implementation BaseTask
 //subClass reWrite
 @synthesize scriptFormat;
+@synthesize taskInfo;
 
 @end

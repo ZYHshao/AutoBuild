@@ -10,6 +10,8 @@
 
 @protocol TaskProtocol <NSObject>
 
-@property (nonatomic,strong,readonly)NSString * scriptFormat;
+@property (nonatomic,strong)NSString * scriptFormat;
+
+@property (nonatomic,strong)NSString * taskInfo;
 
 @end
