@@ -36,6 +36,7 @@
 		25E8ECE11EFE9E19002AC584 /* ProjectDetailWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDF1EFE9E19002AC584 /* ProjectDetailWindow.m */; };
 		25E8ECE21EFE9E19002AC584 /* ProjectDetailWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25E8ECE01EFE9E19002AC584 /* ProjectDetailWindow.xib */; };
 		25E8ECE61EFF70B2002AC584 /* GreatUserInterfaceControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECE51EFF70B2002AC584 /* GreatUserInterfaceControl.m */; };
+		25F261F01F0630F000131F07 /* GitTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 25F261EF1F0630F000131F07 /* GitTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,8 @@
 		25E8ECE41EFF70B2002AC584 /* GreatUserInterfaceControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreatUserInterfaceControl.h; sourceTree = "<group>"; };
 		25E8ECE51EFF70B2002AC584 /* GreatUserInterfaceControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreatUserInterfaceControl.m; sourceTree = "<group>"; };
 		25E8ECE71EFF70E6002AC584 /* GUC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GUC.h; sourceTree = "<group>"; };
+		25F261EE1F0630F000131F07 /* GitTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitTask.h; sourceTree = "<group>"; };
+		25F261EF1F0630F000131F07 /* GitTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitTask.m; sourceTree = "<group>"; };
 		7AE847BD76A010DB7209C67F /* libPods-AutoBuildApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AutoBuildApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A2BDC21A7E38E90B084CCE /* Pods-AutoBuildApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoBuildApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AutoBuildApp/Pods-AutoBuildApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C990DD9BF0ADD0A8B99FF793 /* Pods-AutoBuildApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoBuildApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AutoBuildApp/Pods-AutoBuildApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				25595CDF1F02497500F32A02 /* ProjectTask.m */,
 				25595CDB1F02064400F32A02 /* XCBuildTask.h */,
 				25595CDC1F02064400F32A02 /* XCBuildTask.m */,
+				25F261EE1F0630F000131F07 /* GitTask.h */,
+				25F261EF1F0630F000131F07 /* GitTask.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				25595CDA1F02061800F32A02 /* XCBuildTaskManager.m in Sources */,
 				251E87501EFBB31E0044FA7B /* AddProjectViewModel.m in Sources */,
 				25595CDD1F02064400F32A02 /* XCBuildTask.m in Sources */,
+				25F261F01F0630F000131F07 /* GitTask.m in Sources */,
 				251E874D1EFB9B2B0044FA7B /* RouteManager.m in Sources */,
 				251E87481EFB9A530044FA7B /* AddProjectViewController.m in Sources */,
 				252935ED1EF8C36D00B9DB24 /* main.m in Sources */,

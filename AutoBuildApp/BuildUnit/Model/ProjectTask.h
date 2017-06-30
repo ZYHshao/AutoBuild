@@ -25,4 +25,6 @@
 
 @property (nonatomic,assign)int totalTask;
 
+@property (nonatomic,assign)BOOL isCancel;
+
 @end

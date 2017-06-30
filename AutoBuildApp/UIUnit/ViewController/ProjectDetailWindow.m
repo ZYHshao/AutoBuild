@@ -27,6 +27,8 @@
 
 @property (nonatomic,strong)NSArray * modelTipMessageArray;
 
+@property (nonatomic,weak)ProjectTask * currentProjectTask;
+
 
 //MARK: build
 @property (weak) IBOutlet NSTextField *schemeTextField;
@@ -120,11 +122,14 @@
 
 - (IBAction)startProject:(id)sender {
     NSString * error = nil;
+    [self saveConfigurater:self.saveBuild];
     if ([self.project couldStartPeoject:&error]) {
-        ProjectTask * task = [[XCBuildTaskManager defaultManager]createProjectTask:self.project];
+        ProjectTask * task = self.currentProjectTask = [[XCBuildTaskManager defaultManager]createProjectTask:self.project];
         self.project.log = nil;
         self.logWindow.string = self.project.log;
-        [[XCBuildTaskManager defaultManager] runTask:task stepCallBack:^(int step, NSDictionary * error,CGFloat progress,NSString * log,NSString * info) {
+        self.startButton.enabled = NO;
+        self.stopButton.enabled = YES;
+        [[XCBuildTaskManager defaultManager] runTask:task stepCallBack:^(int step, NSDictionary * error,CGFloat progress,NSString * log,NSString * info,BOOL isFinish) {
             [self.progressBar setDoubleValue:progress];
             if (error==nil) {
                 NSString * logString = [NSString stringWithFormat:@"%@\n\n****\n****\n%@",self.project.log,log];
@@ -138,6 +143,11 @@
             [[ProjectManager defaultManager]refreshProject:self.project];
             self.logWindow.string = self.project.log;
             [self.logWindow scrollToEndOfDocument:nil];
+            if (isFinish) {
+                self.startButton.enabled = YES;
+                self.stopButton.enabled = NO;
+                self.currentProjectTask = nil;
+            }
         }];
     }else{
         [GreatUserInterfaceControlAlert alertInWiondow:self.window withTitle:@"警告" message:error callBack:nil buttons:@"好的", nil];
@@ -146,6 +156,11 @@
 }
 
 - (IBAction)stopProject:(id)sender {
+    if (self.currentProjectTask) {
+        [[XCBuildTaskManager defaultManager]cancelTask:self.currentProjectTask];
+        self.currentProjectTask = nil;
+    }
+    
 }
 
 -(void)updateViewWithModel:(ProjectModel *)model{

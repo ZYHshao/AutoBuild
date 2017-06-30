@@ -34,7 +34,7 @@
     return pTask;
 }
 
--(void)runTask:(ProjectTask *)task stepCallBack:(void (^)(int step,NSDictionary *,CGFloat progress,NSString * log,NSString * finishString))stepCallBack{
+-(void)runTask:(ProjectTask *)task stepCallBack:(void (^)(int step,NSDictionary *,CGFloat progress,NSString * log,NSString * finishString,BOOL isFinish))stepCallBack{
     for (NSString * key in self.opreationQueueMap.allKeys) {
         if ([key isEqualToString:task.projectPath]) {
             NSOperationQueue * queue = [self.opreationQueueMap valueForKey:key];
@@ -55,7 +55,12 @@
 }
 
 -(void)cancelTask:(ProjectTask *)task{
-    [self.allRuningProjectTask removeObject:task];
+    for (ProjectTask * ta in self.allRuningProjectTask) {
+        if ([ta.projectPath isEqualToString:task.projectPath]) {
+            //已经执行operation任务无法终止 用标记来提前中断
+            ta.isCancel = YES;
+        }
+    }
     for (NSString * key in self.opreationQueueMap.allKeys) {
         if ([key isEqualToString:task.projectPath]) {
             NSOperationQueue * queue = [self.opreationQueueMap valueForKey:key];
@@ -72,7 +77,7 @@
 
 
 #pragma mark -- inner
--(void)addOperation:(NSOperationQueue *)queue taskArray:(NSArray<BaseTask*> *)array callBack:(void (^)(int step,NSDictionary *,CGFloat progress,NSString * log,NSString * finishString))stepCallBack task:(ProjectTask*)task{
+-(void)addOperation:(NSOperationQueue *)queue taskArray:(NSArray<BaseTask*> *)array callBack:(void (^)(int step,NSDictionary *,CGFloat progress,NSString * log,NSString * finishString,BOOL isFinish))stepCallBack task:(ProjectTask*)task{
     __weak typeof(self) __self = self;
     [queue addOperationWithBlock:^{
         for (int i=0; i<array.count; i++) {
@@ -80,19 +85,29 @@
             NSAppleScript * script = [[NSAppleScript alloc]initWithSource:array[i].scriptFormat];
             NSAppleEventDescriptor* descript = [script executeAndReturnError:&errorDic];
             task.progress = (i+1.0)/task.totalTask;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                stepCallBack(i,errorDic,task.progress,descript.stringValue,array[i].taskInfo);
-            });
-            
+            BOOL finish = NO;
             //如果有错误 取消掉后续任务
             if (errorDic) {
                 [__self.allRuningProjectTask removeObject:task];
+                finish = YES;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    stepCallBack(i,errorDic,task.progress,descript.stringValue,array[i].taskInfo,finish);
+                });
                 return ;
             }
-            if (i==array.count-1) {
+            if (i==array.count-1||task.isCancel) {
                 //完成的任务 取消掉
                 [__self.allRuningProjectTask removeObject:task];
+                finish = YES;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    stepCallBack(i,errorDic,task.isCancel?0:task.progress,descript.stringValue,array[i].taskInfo,finish);
+                });
+                return;
             }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                stepCallBack(i,errorDic,task.progress,descript.stringValue,array[i].taskInfo,finish);
+            });
+            
         }
     }];
 }
