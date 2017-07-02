@@ -10,6 +10,9 @@
                 <outlet property="archiveTextField" destination="nhq-MJ-Sh8" id="0ba-ik-uOq"/>
                 <outlet property="buildConfiguration" destination="hRZ-uV-eL8" id="bv1-Fn-bdw"/>
                 <outlet property="buildModelSelectButton" destination="XPX-Ld-Cgp" id="IuU-RP-AxR"/>
+                <outlet property="gitContentView" destination="lRb-0J-aPR" id="6MX-9C-cQG"/>
+                <outlet property="gitUnableTipOne" destination="d4f-cE-JPm" id="MbX-4h-Q8n"/>
+                <outlet property="gitUnableTipTwo" destination="hBd-A1-hHe" id="bQD-En-2R5"/>
                 <outlet property="ipaTextField" destination="xG8-td-zvP" id="nUB-I0-Dpu"/>
                 <outlet property="ipaTypeButton" destination="6CQ-I6-AoF" id="Lgq-fe-wah"/>
                 <outlet property="logWindow" destination="3wL-27-xxt" id="MDS-hY-W2O"/>
@@ -228,13 +231,13 @@
                                                 <constraint firstAttribute="height" constant="21" id="CCd-6a-X26"/>
                                                 <constraint firstAttribute="width" constant="160" id="hjD-BC-juq"/>
                                             </constraints>
-                                            <popUpButtonCell key="cell" type="push" title="appstore 发布包" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Ehn-PK-LRL" id="Jqi-y2-u1M">
+                                            <popUpButtonCell key="cell" type="push" title="appstore 发布包" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Ehn-PK-LRL" id="Jqi-y2-u1M">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="cMR-1x-Lgh">
                                                     <items>
-                                                        <menuItem title="appstore 发布包" id="Ehn-PK-LRL"/>
-                                                        <menuItem title="ad-hoc测试包" state="on" id="CcJ-RG-Y8W"/>
+                                                        <menuItem title="appstore 发布包" state="on" id="Ehn-PK-LRL"/>
+                                                        <menuItem title="ad-hoc测试包" id="CcJ-RG-Y8W"/>
                                                         <menuItem title="Develop测试包" id="Ctd-iC-dQe"/>
                                                     </items>
                                                 </menu>
@@ -281,6 +284,45 @@
                                 <view key="view" id="Imn-DN-hbF">
                                     <rect key="frame" x="10" y="33" width="780" height="270"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4f-cE-JPm">
+                                            <rect key="frame" x="151" y="156" width="478" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="474" id="XEo-nJ-xcn"/>
+                                                <constraint firstAttribute="height" constant="24" id="fzQ-cv-3Tg"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="当前项目不是一个Git工程，此模块功能不可用" id="Nag-Gd-WJ7">
+                                                <font key="font" size="23" name=".PingFangSC-Ultralight"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBd-A1-hHe">
+                                            <rect key="frame" x="169" y="108" width="442" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="Iw5-jp-Wmw"/>
+                                                <constraint firstAttribute="width" constant="438" id="oSf-6B-fXR"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="您可以尝试使用自助模式进行自动化构建" id="Cui-fH-Klg">
+                                                <font key="font" size="24" name=".PingFangSC-Ultralight"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="lRb-0J-aPR">
+                                            <rect key="frame" x="5" y="4" width="771" height="263"/>
+                                        </customView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hBd-A1-hHe" firstAttribute="top" secondItem="Imn-DN-hbF" secondAttribute="top" constant="137" id="0bP-cM-4Vi"/>
+                                        <constraint firstItem="lRb-0J-aPR" firstAttribute="leading" secondItem="Imn-DN-hbF" secondAttribute="leading" constant="5" id="96p-if-EhK"/>
+                                        <constraint firstAttribute="trailing" secondItem="lRb-0J-aPR" secondAttribute="trailing" constant="4" id="GLn-gd-AXm"/>
+                                        <constraint firstItem="hBd-A1-hHe" firstAttribute="centerX" secondItem="Imn-DN-hbF" secondAttribute="centerX" id="WfG-79-QK9"/>
+                                        <constraint firstAttribute="bottom" secondItem="lRb-0J-aPR" secondAttribute="bottom" constant="4" id="Zyf-ib-mVx"/>
+                                        <constraint firstItem="lRb-0J-aPR" firstAttribute="top" secondItem="Imn-DN-hbF" secondAttribute="top" constant="3" id="oFr-BO-MmL"/>
+                                        <constraint firstItem="d4f-cE-JPm" firstAttribute="top" secondItem="Imn-DN-hbF" secondAttribute="top" constant="90" id="whz-JR-Znu"/>
+                                        <constraint firstItem="d4f-cE-JPm" firstAttribute="centerX" secondItem="Imn-DN-hbF" secondAttribute="centerX" id="zx3-0l-GMT"/>
+                                    </constraints>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="发布" identifier="" id="eys-wG-CvE">

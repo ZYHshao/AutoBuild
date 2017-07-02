@@ -107,6 +107,14 @@
     return _ipaType;
 }
 
+-(NSString *)gitFilePath{
+    NSArray * strs = [self.projectPath componentsSeparatedByString:@"/"];
+    NSMutableArray * newStrs = [NSMutableArray arrayWithArray:strs];
+    [newStrs removeLastObject];
+    NSString * string = [newStrs componentsJoinedByString:@"/"];
+    return [NSString stringWithFormat:@"%@/.git",string];
+}
+
 #pragma mark -- mathod
 -(BOOL)couldStartPeoject:(NSString *__autoreleasing *)error{
     switch (self.buildModel) {

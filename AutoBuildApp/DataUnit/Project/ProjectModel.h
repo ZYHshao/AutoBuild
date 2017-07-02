@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger, ProjectBuildModel) {
 #pragma mark -- inner property
 @property(nonatomic,strong)NSString * projectRealName;
 @property(nonatomic,strong)NSString * projectType; //project or workspace
-
+@property(nonatomic,strong,readonly)NSString * gitFilePath;
 
 -(BOOL)couldStartPeoject:(NSString **)error;
 

@@ -40,6 +40,12 @@
 @property (weak) IBOutlet NSButton *saveBuild;
 @property (weak) IBOutlet NSPopUpButton *ipaTypeButton;
 
+//MARK: GIT
+@property (weak) IBOutlet NSTextField *gitUnableTipOne;
+@property (weak) IBOutlet NSTextField *gitUnableTipTwo;
+@property (weak) IBOutlet NSView *gitContentView;
+
+
 //MARK: Normal
 @property (weak) IBOutlet NSPopUpButton *buildModelSelectButton;
 @property (unsafe_unretained) IBOutlet NSTextView *logWindow;
@@ -192,7 +198,24 @@
             self.stopButton.enabled = YES;
         }
     }
+    
+    //.git file exist?
+    [self updateGitTip:[[NSFileManager defaultManager] fileExistsAtPath:model.gitFilePath]];
 }
+
+#pragma mark -- innder
+-(void)updateGitTip:(BOOL)able{
+    if (!able) {
+        self.gitUnableTipOne.hidden = NO;
+        self.gitUnableTipTwo.hidden = NO;
+        self.gitContentView.hidden = YES;
+    }else{
+        self.gitUnableTipOne.hidden = YES;
+        self.gitUnableTipTwo.hidden = YES;
+        self.gitContentView.hidden = NO;
+    }
+}
+
 
 #pragma mark -- setter and getter
 -(NSArray *)modelTipMessageArray{
