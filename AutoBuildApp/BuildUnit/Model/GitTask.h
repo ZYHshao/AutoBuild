@@ -8,6 +8,13 @@
 
 #import "BaseTask.h"
 
+@class ProjectModel;
+
+typedef NS_ENUM(NSUInteger, GitTaskType) {
+    GitTaskTypeGetBranchList
+};
+
 @interface GitTask : BaseTask
+-(instancetype)initWithProject:(ProjectModel *)project taskType:(GitTaskType)taskType;
 
 @end

@@ -54,6 +54,21 @@
 
 }
 
+-(void)getGitBranch:(ProjectModel *)project stepCallBack:(void (^)(NSDictionary *, NSString *, BOOL))stepCallBack{
+    BaseTask * task = [[[ProjectTask alloc]initWithProject:project] createTaskGetGitBranch];
+    NSAppleScript * script = [[NSAppleScript alloc]initWithSource:task.scriptFormat];
+    NSBlockOperation * op = [NSBlockOperation blockOperationWithBlock:^{
+        NSDictionary * errorDic = nil;
+        NSAppleEventDescriptor* descript = [script executeAndReturnError:&errorDic];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (stepCallBack) {
+                stepCallBack(errorDic,descript.stringValue,YES);
+            }
+        });
+    }];
+    [op start];
+}
+
 -(void)cancelTask:(ProjectTask *)task{
     for (ProjectTask * ta in self.allRuningProjectTask) {
         if ([ta.projectPath isEqualToString:task.projectPath]) {
@@ -75,6 +90,10 @@
     [self.opreationQueueMap removeObjectForKey:task.projectPath];
 }
 
+
+-(void)getGitBranch:(ProjectModel *)project{
+    
+}
 
 #pragma mark -- inner
 -(void)addOperation:(NSOperationQueue *)queue taskArray:(NSArray<BaseTask*> *)array callBack:(void (^)(int step,NSDictionary *,CGFloat progress,NSString * log,NSString * finishString,BOOL isFinish))stepCallBack task:(ProjectTask*)task{

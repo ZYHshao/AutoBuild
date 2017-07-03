@@ -18,6 +18,7 @@
 #define MODEL_USER_WONER_TIP @"自助模式下将只进行工程的自动化打包，必须配置编译模块。"
 #define MODEL_SEMI_AUTO_TIP @"半自动模式下将进行工程的打包与发布，必须配置编译模块与发布模块。"
 #define MODEL_AOTU_TIP @"全自动模式将帮您进行工程的代码更新，打包，发布等一系列操作，必须配置编译、GIT与发布模块。"
+#define GIT_BRANCH_NULL_TIP @"请重新刷新分支列表"
 
 @interface ProjectDetailWindow ()
 
@@ -29,6 +30,7 @@
 
 @property (nonatomic,weak)ProjectTask * currentProjectTask;
 
+@property (nonatomic,assign)BOOL isRefreshingGitBranch;
 
 //MARK: build
 @property (weak) IBOutlet NSTextField *schemeTextField;
@@ -44,6 +46,10 @@
 @property (weak) IBOutlet NSTextField *gitUnableTipOne;
 @property (weak) IBOutlet NSTextField *gitUnableTipTwo;
 @property (weak) IBOutlet NSView *gitContentView;
+@property (weak) IBOutlet NSPopUpButton *branchListButton;
+@property (weak) IBOutlet NSProgressIndicator *refreshBranchTip;
+@property (weak) IBOutlet NSButton *refreshBranchButton;
+
 
 
 //MARK: Normal
@@ -169,6 +175,33 @@
     
 }
 
+- (IBAction)refreshBranch:(NSButton *)sender {
+    self.isRefreshingGitBranch = YES;
+    self.refreshBranchTip.hidden = NO;
+    [[XCBuildTaskManager defaultManager]getGitBranch:self.project stepCallBack:^(NSDictionary * error, NSString * des, BOOL finish) {
+        self.isRefreshingGitBranch = NO;
+        self.refreshBranchTip.hidden = YES;
+        if (error!=nil) {
+            NSString * logString = [NSString stringWithFormat:@"%@\n刷新分支错误错误：\n!!!!\n!!!!\n%@",self.project.log,error];
+            self.project.log = logString;
+            [[ProjectManager defaultManager]refreshProject:self.project];
+        }
+        NSArray * branchArray = [des componentsSeparatedByString:@"\r"];
+        NSString * logString = [NSString stringWithFormat:@"%@\n刷新分支成功\n%@",self.project.log,des];
+        self.project.log = logString;
+        self.logWindow.string = self.project.log;
+        [self.logWindow scrollToEndOfDocument:nil];
+        [self.branchListButton removeAllItems];
+        for (int i=0; i<branchArray.count; i++) {
+            [self.branchListButton addItemWithTitle:branchArray[i]];
+        }
+        self.project.gitBranchList = branchArray;
+        [[ProjectManager defaultManager]refreshProject:self.project];
+    }];
+}
+
+
+
 -(void)updateViewWithModel:(ProjectModel *)model{
     self.project = model;
     [self.window.contentView setNeedsLayout:YES];
@@ -201,6 +234,20 @@
     
     //.git file exist?
     [self updateGitTip:[[NSFileManager defaultManager] fileExistsAtPath:model.gitFilePath]];
+    
+    if (model.gitBranchList.count==0) {
+        [self.branchListButton removeAllItems];
+        [self.branchListButton addItemWithTitle:GIT_BRANCH_NULL_TIP];
+    }else{
+        [self.branchListButton removeAllItems];
+        for (int i =0; i<model.gitBranchList.count; i++) {
+            [self.branchListButton addItemWithTitle:model.gitBranchList[i]];
+        }
+    }
+    [self.refreshBranchTip startAnimation:nil];
+    self.refreshBranchTip.hidden = !self.isRefreshingGitBranch;
+    
+    
 }
 
 #pragma mark -- innder

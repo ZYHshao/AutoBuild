@@ -18,6 +18,8 @@
 
 -(NSArray<BaseTask *> *)createTaskGroup;
 
+//获取git分支列表
+-(BaseTask *)createTaskGetGitBranch;
 
 @property (nonatomic,strong,readonly)NSString* projectPath;
 

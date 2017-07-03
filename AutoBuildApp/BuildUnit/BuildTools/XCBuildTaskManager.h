@@ -52,4 +52,11 @@
  */
 -(void)removeTask:(ProjectTask *)task;
 
+/**
+ 获取git分支列表
+
+ @param project git 工程
+ */
+-(void)getGitBranch:(ProjectModel *)project stepCallBack:(void(^)(NSDictionary* ,NSString *,BOOL))stepCallBack;
+
 @end

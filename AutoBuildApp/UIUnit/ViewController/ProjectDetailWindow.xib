@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="ProjectDetailWindow">
             <connections>
                 <outlet property="archiveTextField" destination="nhq-MJ-Sh8" id="0ba-ik-uOq"/>
+                <outlet property="branchListButton" destination="y9V-Kg-s6Q" id="HUn-bP-MDd"/>
                 <outlet property="buildConfiguration" destination="hRZ-uV-eL8" id="bv1-Fn-bdw"/>
                 <outlet property="buildModelSelectButton" destination="XPX-Ld-Cgp" id="IuU-RP-AxR"/>
                 <outlet property="gitContentView" destination="lRb-0J-aPR" id="6MX-9C-cQG"/>
@@ -18,6 +19,8 @@
                 <outlet property="logWindow" destination="3wL-27-xxt" id="MDS-hY-W2O"/>
                 <outlet property="modelTipLabel" destination="hEg-9j-jXg" id="k1s-HW-qfq"/>
                 <outlet property="progressBar" destination="SCR-W0-wEQ" id="TLZ-jU-PGn"/>
+                <outlet property="refreshBranchButton" destination="VqX-lN-GMr" id="yQM-Ba-bwd"/>
+                <outlet property="refreshBranchTip" destination="3iR-p9-4Cp" id="ME6-fn-oRx"/>
                 <outlet property="saveBuild" destination="HH6-7e-zcb" id="iVO-bF-T6g"/>
                 <outlet property="schemeTextField" destination="919-GX-hMO" id="czt-rl-Ivl"/>
                 <outlet property="selectArchivePath" destination="ahu-Kf-95g" id="ruu-08-n6F"/>
@@ -311,6 +314,81 @@
                                         </textField>
                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="lRb-0J-aPR">
                                             <rect key="frame" x="5" y="4" width="771" height="263"/>
+                                            <subviews>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8J-9R-vbe">
+                                                    <rect key="frame" x="87" y="194" width="97" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="6eU-cT-ukU"/>
+                                                        <constraint firstAttribute="width" constant="93" id="WUT-Vg-L5D"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="请选择发布分支" id="zeO-ee-31J">
+                                                        <font key="font" size="13" name=".PingFangSC-Medium"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xc0-yV-f4B">
+                                                    <rect key="frame" x="60" y="228" width="650" height="23"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="646" id="dw6-ZE-Pvy"/>
+                                                        <constraint firstAttribute="height" constant="23" id="klf-pW-NLo"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Git模块可以帮助你构建专门的发布分支，实现代码实时监测，更新增量打包发布!" id="bGh-MS-APg">
+                                                        <font key="font" size="18" name="STFangsong"/>
+                                                        <color key="textColor" red="0.28345098350253806" green="0.22341620668200329" blue="0.27214643287030815" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y9V-Kg-s6Q">
+                                                    <rect key="frame" x="203" y="189" width="279" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="QC2-lj-kSg"/>
+                                                    </constraints>
+                                                    <popUpButtonCell key="cell" type="push" title="请重新刷新分支列表" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="5EW-QW-zqv" id="Hvs-wm-Bp7">
+                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="menu"/>
+                                                        <menu key="menu" id="cxw-BV-7WH">
+                                                            <items>
+                                                                <menuItem title="请重新刷新分支列表" state="on" id="5EW-QW-zqv"/>
+                                                            </items>
+                                                        </menu>
+                                                    </popUpButtonCell>
+                                                </popUpButton>
+                                                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="3iR-p9-4Cp">
+                                                    <rect key="frame" x="487" y="195" width="16" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="16" id="Gur-9H-08v"/>
+                                                        <constraint firstAttribute="height" constant="16" id="StW-pd-Egi"/>
+                                                    </constraints>
+                                                </progressIndicator>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VqX-lN-GMr">
+                                                    <rect key="frame" x="505" y="185" width="73" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="H8t-0f-SRG"/>
+                                                        <constraint firstAttribute="width" constant="61" id="rVC-fx-ewe"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="push" title="刷新" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="hkx-KJ-Tw7">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="refreshBranch:" target="-2" id="vCs-De-PNx"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Xc0-yV-f4B" firstAttribute="centerX" secondItem="lRb-0J-aPR" secondAttribute="centerX" id="AjN-ur-KNw"/>
+                                                <constraint firstItem="VqX-lN-GMr" firstAttribute="top" secondItem="lRb-0J-aPR" secondAttribute="top" constant="50" id="C7i-It-cQU"/>
+                                                <constraint firstItem="s8J-9R-vbe" firstAttribute="leading" secondItem="lRb-0J-aPR" secondAttribute="leading" constant="89" id="Xt0-AL-eya"/>
+                                                <constraint firstItem="3iR-p9-4Cp" firstAttribute="top" secondItem="lRb-0J-aPR" secondAttribute="top" constant="52" id="cJf-Rs-Qjf"/>
+                                                <constraint firstItem="y9V-Kg-s6Q" firstAttribute="top" secondItem="lRb-0J-aPR" secondAttribute="top" constant="50" id="ctj-e9-UNk"/>
+                                                <constraint firstAttribute="trailing" secondItem="y9V-Kg-s6Q" secondAttribute="trailing" constant="292" id="eoR-Yt-NBp"/>
+                                                <constraint firstItem="s8J-9R-vbe" firstAttribute="top" secondItem="lRb-0J-aPR" secondAttribute="top" constant="52" id="ffL-gU-aaZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="3iR-p9-4Cp" secondAttribute="trailing" constant="268" id="n4D-zX-J82"/>
+                                                <constraint firstAttribute="trailing" secondItem="VqX-lN-GMr" secondAttribute="trailing" constant="199" id="p3M-cZ-tsn"/>
+                                                <constraint firstItem="y9V-Kg-s6Q" firstAttribute="leading" secondItem="lRb-0J-aPR" secondAttribute="leading" constant="205" id="yjA-JC-TlO"/>
+                                                <constraint firstItem="Xc0-yV-f4B" firstAttribute="top" secondItem="lRb-0J-aPR" secondAttribute="top" constant="12" id="yzh-6E-N5C"/>
+                                            </constraints>
                                         </customView>
                                     </subviews>
                                     <constraints>

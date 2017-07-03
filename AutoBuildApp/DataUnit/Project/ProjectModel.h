@@ -36,6 +36,11 @@ typedef NS_ENUM(NSUInteger, ProjectBuildModel) {
 @property(nonatomic,strong)NSString * projectType; //project or workspace
 @property(nonatomic,strong,readonly)NSString * gitFilePath;
 
+
+#pragma mark -- moment property
+//下面这些属性不进行持久化 只进行临时存储
+@property(nonatomic,strong)NSArray * gitBranchList;
+
 -(BOOL)couldStartPeoject:(NSString **)error;
 
 @end

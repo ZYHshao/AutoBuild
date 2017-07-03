@@ -9,6 +9,7 @@
 #import "ProjectTask.h"
 #import "ProjectModel.h"
 #import "XCBuildTask.h"
+#import "GitTask.h"
 
 @interface ProjectTask()
 
@@ -39,6 +40,11 @@
         self.totalTask = 3;
     }
     return array;
+}
+
+-(BaseTask *)createTaskGetGitBranch{
+    GitTask * task = [[GitTask alloc]initWithProject:self.project taskType:GitTaskTypeGetBranchList];
+    return task;
 }
 
 @end
