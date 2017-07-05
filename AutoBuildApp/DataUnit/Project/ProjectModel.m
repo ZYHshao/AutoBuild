@@ -8,6 +8,8 @@
 
 #import "ProjectModel.h"
 
+#define GIT_BRANCH_NULL_TIP @"请重新刷新分支列表"
+
 @implementation ProjectModel
 
 - (instancetype)initWithCoder:(NSCoder *)coder
@@ -25,6 +27,8 @@
         _projectType = [coder decodeObjectForKey:@"projectType"];
         _log = [coder decodeObjectForKey:@"log"];
         _ipaType = [coder decodeObjectForKey:@"ipaType"];
+        _gitBranchList = [coder decodeObjectForKey:@"gitBranchList"];
+        _selectGitBranch = [coder decodeObjectForKey:@"selectGitBranch"];
     }
     return self;
 }
@@ -42,6 +46,8 @@
     [coder encodeObject:_projectType forKey:@"projectType"];
     [coder encodeObject:_log forKey:@"log"];
     [coder encodeObject:_ipaType forKey:@"ipaType"];
+    [coder encodeObject:_gitBranchList forKey:@"gitBranchList"];
+    [coder encodeObject:_selectGitBranch forKey:@"selectGitBranch"];
 }
 
 
@@ -115,9 +121,34 @@
     return [NSString stringWithFormat:@"%@/.git",string];
 }
 
+-(NSArray *)gitBranchList{
+    if (!_gitBranchList) {
+        _gitBranchList = @[GIT_BRANCH_NULL_TIP];
+    }
+    return _gitBranchList;
+}
+
+-(NSString *)selectGitBranch{
+    if (!_selectGitBranch) {
+        _selectGitBranch = self.gitBranchList.firstObject;
+    }
+    return _selectGitBranch;
+}
+
 #pragma mark -- mathod
 -(BOOL)couldStartPeoject:(NSString *__autoreleasing *)error{
     switch (self.buildModel) {
+        case ProjectAuto:
+        {
+            
+        }
+        case ProjectSemiAuto:
+        {
+            if ([self.selectGitBranch isEqualToString:GIT_BRANCH_NULL_TIP]) {
+                *error = @"您必须配置一个自动化构建的Git分支";
+                return NO;
+            }
+        }
         case ProjectUserOwnerModel:
         {
             if (self.scheme.length==0) {
@@ -134,17 +165,7 @@
             }
             return YES;
         }
-            break;
-        case ProjectSemiAuto:
-        {
-            
-        }
-            break;
-        case ProjectAuto:
-        {
-            
-        }
-            break;
+
     }
     return NO;
 }

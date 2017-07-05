@@ -315,18 +315,6 @@
                                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="lRb-0J-aPR">
                                             <rect key="frame" x="5" y="4" width="771" height="263"/>
                                             <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8J-9R-vbe">
-                                                    <rect key="frame" x="87" y="194" width="97" height="17"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="17" id="6eU-cT-ukU"/>
-                                                        <constraint firstAttribute="width" constant="93" id="WUT-Vg-L5D"/>
-                                                    </constraints>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="请选择发布分支" id="zeO-ee-31J">
-                                                        <font key="font" size="13" name=".PingFangSC-Medium"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xc0-yV-f4B">
                                                     <rect key="frame" x="60" y="228" width="650" height="23"/>
                                                     <constraints>
@@ -353,6 +341,9 @@
                                                             </items>
                                                         </menu>
                                                     </popUpButtonCell>
+                                                    <connections>
+                                                        <action selector="seletedBranch:" target="-2" id="NEA-gV-JWQ"/>
+                                                    </connections>
                                                 </popUpButton>
                                                 <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="3iR-p9-4Cp">
                                                     <rect key="frame" x="487" y="195" width="16" height="16"/>
@@ -375,15 +366,27 @@
                                                         <action selector="refreshBranch:" target="-2" id="vCs-De-PNx"/>
                                                     </connections>
                                                 </button>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8J-9R-vbe">
+                                                    <rect key="frame" x="90" y="195" width="97" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="6eU-cT-ukU"/>
+                                                        <constraint firstAttribute="width" constant="93" id="WUT-Vg-L5D"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="请选择发布分支：" id="zeO-ee-31J">
+                                                        <font key="font" size="13" name=".PingFangSC-Medium"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Xc0-yV-f4B" firstAttribute="centerX" secondItem="lRb-0J-aPR" secondAttribute="centerX" id="AjN-ur-KNw"/>
                                                 <constraint firstItem="VqX-lN-GMr" firstAttribute="top" secondItem="lRb-0J-aPR" secondAttribute="top" constant="50" id="C7i-It-cQU"/>
-                                                <constraint firstItem="s8J-9R-vbe" firstAttribute="leading" secondItem="lRb-0J-aPR" secondAttribute="leading" constant="89" id="Xt0-AL-eya"/>
+                                                <constraint firstItem="s8J-9R-vbe" firstAttribute="leading" secondItem="lRb-0J-aPR" secondAttribute="leading" constant="92" id="Xt0-AL-eya"/>
                                                 <constraint firstItem="3iR-p9-4Cp" firstAttribute="top" secondItem="lRb-0J-aPR" secondAttribute="top" constant="52" id="cJf-Rs-Qjf"/>
                                                 <constraint firstItem="y9V-Kg-s6Q" firstAttribute="top" secondItem="lRb-0J-aPR" secondAttribute="top" constant="50" id="ctj-e9-UNk"/>
                                                 <constraint firstAttribute="trailing" secondItem="y9V-Kg-s6Q" secondAttribute="trailing" constant="292" id="eoR-Yt-NBp"/>
-                                                <constraint firstItem="s8J-9R-vbe" firstAttribute="top" secondItem="lRb-0J-aPR" secondAttribute="top" constant="52" id="ffL-gU-aaZ"/>
+                                                <constraint firstItem="s8J-9R-vbe" firstAttribute="top" secondItem="lRb-0J-aPR" secondAttribute="top" constant="51" id="ffL-gU-aaZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="3iR-p9-4Cp" secondAttribute="trailing" constant="268" id="n4D-zX-J82"/>
                                                 <constraint firstAttribute="trailing" secondItem="VqX-lN-GMr" secondAttribute="trailing" constant="199" id="p3M-cZ-tsn"/>
                                                 <constraint firstItem="y9V-Kg-s6Q" firstAttribute="leading" secondItem="lRb-0J-aPR" secondAttribute="leading" constant="205" id="yjA-JC-TlO"/>

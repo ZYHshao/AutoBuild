@@ -27,6 +27,8 @@ typedef NS_ENUM(NSUInteger, ProjectBuildModel) {
 @property(nonatomic,assign)ProjectBuildModel buildModel; //defaule == UserOwnerModel
 @property(nonatomic,strong)NSString * ipaType;// ad-hoc app-store development
 
+#pragma mark -- git Progerty
+@property(nonatomic,strong)NSArray * gitBranchList;
 
 #pragma mark -- mark noemal
 @property(nonatomic,strong)NSString * log; //log message
@@ -35,11 +37,11 @@ typedef NS_ENUM(NSUInteger, ProjectBuildModel) {
 @property(nonatomic,strong)NSString * projectRealName;
 @property(nonatomic,strong)NSString * projectType; //project or workspace
 @property(nonatomic,strong,readonly)NSString * gitFilePath;
-
+@property(nonatomic,strong)NSString * selectGitBranch; //default this first of branch list
 
 #pragma mark -- moment property
 //下面这些属性不进行持久化 只进行临时存储
-@property(nonatomic,strong)NSArray * gitBranchList;
+
 
 -(BOOL)couldStartPeoject:(NSString **)error;
 

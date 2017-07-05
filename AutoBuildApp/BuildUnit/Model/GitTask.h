@@ -11,7 +11,9 @@
 @class ProjectModel;
 
 typedef NS_ENUM(NSUInteger, GitTaskType) {
-    GitTaskTypeGetBranchList
+    GitTaskTypeGetBranchList,
+    GitTaskTypeCheckOut,
+    GitTaskTypePull
 };
 
 @interface GitTask : BaseTask

@@ -57,6 +57,7 @@
 -(void)getGitBranch:(ProjectModel *)project stepCallBack:(void (^)(NSDictionary *, NSString *, BOOL))stepCallBack{
     BaseTask * task = [[[ProjectTask alloc]initWithProject:project] createTaskGetGitBranch];
     NSAppleScript * script = [[NSAppleScript alloc]initWithSource:task.scriptFormat];
+    NSOperationQueue * queue = [[NSOperationQueue alloc]init];
     NSBlockOperation * op = [NSBlockOperation blockOperationWithBlock:^{
         NSDictionary * errorDic = nil;
         NSAppleEventDescriptor* descript = [script executeAndReturnError:&errorDic];
@@ -66,7 +67,7 @@
             }
         });
     }];
-    [op start];
+    [queue addOperation:op];
 }
 
 -(void)cancelTask:(ProjectTask *)task{
