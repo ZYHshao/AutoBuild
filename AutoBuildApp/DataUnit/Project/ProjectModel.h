@@ -14,6 +14,11 @@ typedef NS_ENUM(NSUInteger, ProjectBuildModel) {
     ProjectAuto,           //全自动
 };
 
+typedef NS_ENUM(NSUInteger, DownLoadAuthority) {
+    DownLoadAuthorityPublic =1,
+    DownLoadAuthorityprivate, //need password
+};
+
 @interface ProjectModel : NSObject
 
 @property(nonatomic,strong)NSString * projectPath;
@@ -29,6 +34,14 @@ typedef NS_ENUM(NSUInteger, ProjectBuildModel) {
 
 #pragma mark -- git Progerty
 @property(nonatomic,strong)NSArray * gitBranchList;
+
+#pragma mark -- upload file
+@property(nonatomic,strong)NSString * uKey;
+@property(nonatomic,strong)NSString * api_key;
+@property(nonatomic,assign)DownLoadAuthority authority; //default public
+@property(nonatomic,strong)NSString * password;
+@property(nonatomic,strong)NSString * updataMessage;
+
 
 #pragma mark -- mark noemal
 @property(nonatomic,strong)NSString * log; //log message

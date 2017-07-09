@@ -50,6 +50,13 @@
 @property (weak) IBOutlet NSProgressIndicator *refreshBranchTip;
 @property (weak) IBOutlet NSButton *refreshBranchButton;
 
+//MARK: upload
+@property (weak) IBOutlet NSTextField *uKeyField;
+@property (weak) IBOutlet NSTextField *apiKeyField;
+@property (weak) IBOutlet NSPopUpButton *aothorityButton;
+@property (weak) IBOutlet NSSecureTextField *passwordField;
+@property (weak) IBOutlet NSTextField *uploadMessageLabel;
+@property (weak) IBOutlet NSButton *savaUploadInfoButton;
 
 
 //MARK: Normal
@@ -133,9 +140,26 @@
     GUC_REFRESH(GUCMainView);
 }
 
+- (IBAction)saveUploadInfo:(NSButton *)sender {
+    [self.uKeyField abortEditing];
+    [self.apiKeyField abortEditing];
+    [self.passwordField abortEditing];
+    [self.uploadMessageLabel abortEditing];
+    self.project.uKey = self.uKeyField.stringValue;
+    self.project.api_key = self.apiKeyField.stringValue;
+    self.project.password = self.passwordField.stringValue;
+    self.project.updataMessage = self.uploadMessageLabel.stringValue;
+    self.project.authority = [self.aothorityButton indexOfSelectedItem]+1;
+    self.project.updataMessage = self.uploadMessageLabel.stringValue;
+    [[ProjectManager defaultManager]refreshProject:self.project];
+    GUC_REFRESH(GUCMainView);
+}
+
+
 - (IBAction)startProject:(id)sender {
     NSString * error = nil;
     [self saveConfigurater:self.saveBuild];
+    [self saveUploadInfo:self.savaUploadInfoButton];
     if ([self.project couldStartPeoject:&error]) {
         ProjectTask * task = self.currentProjectTask = [[XCBuildTaskManager defaultManager]createProjectTask:self.project];
         self.project.log = nil;
@@ -255,6 +279,13 @@
     [self.branchListButton selectItemWithTitle:model.selectGitBranch];
     [self.refreshBranchTip startAnimation:nil];
     self.refreshBranchTip.hidden = !self.isRefreshingGitBranch;
+    
+    //upload
+    [self.uKeyField setStringValue:model.uKey];
+    [self.apiKeyField setStringValue:model.api_key];
+    [self.aothorityButton selectItemAtIndex:model.authority-1];
+    [self.passwordField setStringValue:model.password];
+    [self.uploadMessageLabel setStringValue:model.updataMessage];
 }
 
 #pragma mark -- innder

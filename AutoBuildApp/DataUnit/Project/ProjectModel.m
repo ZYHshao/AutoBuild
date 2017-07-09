@@ -29,6 +29,10 @@
         _ipaType = [coder decodeObjectForKey:@"ipaType"];
         _gitBranchList = [coder decodeObjectForKey:@"gitBranchList"];
         _selectGitBranch = [coder decodeObjectForKey:@"selectGitBranch"];
+        _uKey = [coder decodeObjectForKey:@"uKey"];
+        _api_key = [coder decodeObjectForKey:@"api_key"];
+        _authority = [coder decodeIntegerForKey:@"authority"];
+        _password = [coder decodeObjectForKey:@"password"];
     }
     return self;
 }
@@ -48,6 +52,10 @@
     [coder encodeObject:_ipaType forKey:@"ipaType"];
     [coder encodeObject:_gitBranchList forKey:@"gitBranchList"];
     [coder encodeObject:_selectGitBranch forKey:@"selectGitBranch"];
+    [coder encodeObject:_uKey forKey:@"uKey"];
+    [coder encodeObject:_api_key forKey:@"api_key"];
+    [coder encodeInteger:_authority forKey:@"authority"];
+    [coder encodeObject:_password forKey:@"password"];
 }
 
 
@@ -133,6 +141,41 @@
         _selectGitBranch = self.gitBranchList.firstObject;
     }
     return _selectGitBranch;
+}
+
+-(NSString *)uKey{
+    if (!_uKey) {
+        _uKey = @"";
+    }
+    return _uKey;
+}
+
+-(NSString *)api_key{
+    if (!_api_key) {
+        _api_key = @"";
+    }
+    return _api_key;
+}
+
+-(DownLoadAuthority)authority{
+    if (_authority==0) {
+        _authority = DownLoadAuthorityPublic;
+    }
+    return _authority;
+}
+
+-(NSString *)password{
+    if (!_password) {
+        _password = @"";
+    }
+    return _password;
+}
+
+-(NSString *)updataMessage{
+    if (!_updataMessage) {
+        _updataMessage = @"";
+    }
+    return _updataMessage;
 }
 
 #pragma mark -- mathod
