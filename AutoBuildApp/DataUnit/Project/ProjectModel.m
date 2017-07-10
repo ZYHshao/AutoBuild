@@ -183,12 +183,23 @@
     switch (self.buildModel) {
         case ProjectAuto:
         {
-            
+            if ([self.selectGitBranch isEqualToString:GIT_BRANCH_NULL_TIP]) {
+                *error = @"您必须配置一个自动化构建的Git分支";
+                return NO;
+            }
         }
         case ProjectSemiAuto:
         {
-            if ([self.selectGitBranch isEqualToString:GIT_BRANCH_NULL_TIP]) {
-                *error = @"您必须配置一个自动化构建的Git分支";
+            if (self.uKey.length==0) {
+                *error = @"您必须配置蒲公英平台的uKey凭证";
+                return NO;
+            }
+            if (self.api_key.length==0) {
+                *error = @"您必须配置蒲公英平台的api_key凭证";
+                return NO;
+            }
+            if (self.authority==DownLoadAuthorityprivate && self.password.length==0) {
+                *error = @"您必须设置下载密码";
                 return NO;
             }
         }

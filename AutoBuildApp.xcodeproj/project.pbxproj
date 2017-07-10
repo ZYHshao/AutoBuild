@@ -31,6 +31,8 @@
 		25595CDA1F02061800F32A02 /* XCBuildTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CD91F02061800F32A02 /* XCBuildTaskManager.m */; };
 		25595CDD1F02064400F32A02 /* XCBuildTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CDC1F02064400F32A02 /* XCBuildTask.m */; };
 		25595CE01F02497500F32A02 /* ProjectTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 25595CDF1F02497500F32A02 /* ProjectTask.m */; };
+		256CB3E11F132FF0002F93B5 /* HttpRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 256CB3E01F132FF0002F93B5 /* HttpRequestManager.m */; };
+		256CB3E41F1340BA002F93B5 /* UploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 256CB3E31F1340BA002F93B5 /* UploadTask.m */; };
 		25D4796E1F0367AF00375130 /* BaseTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D4796D1F0367AF00375130 /* BaseTask.m */; };
 		25E8ECDD1EFCC56C002AC584 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDC1EFCC56C002AC584 /* DBManager.m */; };
 		25E8ECE11EFE9E19002AC584 /* ProjectDetailWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E8ECDF1EFE9E19002AC584 /* ProjectDetailWindow.m */; };
@@ -84,6 +86,10 @@
 		25595CDE1F02497500F32A02 /* ProjectTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTask.h; sourceTree = "<group>"; };
 		25595CDF1F02497500F32A02 /* ProjectTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTask.m; sourceTree = "<group>"; };
 		25595CE41F024D8100F32A02 /* TaskProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskProtocol.h; sourceTree = "<group>"; };
+		256CB3DF1F132FF0002F93B5 /* HttpRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequestManager.h; sourceTree = "<group>"; };
+		256CB3E01F132FF0002F93B5 /* HttpRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestManager.m; sourceTree = "<group>"; };
+		256CB3E21F1340BA002F93B5 /* UploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadTask.h; sourceTree = "<group>"; };
+		256CB3E31F1340BA002F93B5 /* UploadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadTask.m; sourceTree = "<group>"; };
 		25D4796C1F0367AF00375130 /* BaseTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTask.h; sourceTree = "<group>"; };
 		25D4796D1F0367AF00375130 /* BaseTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTask.m; sourceTree = "<group>"; };
 		25E8ECDB1EFCC56C002AC584 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
@@ -169,6 +175,8 @@
 				25595CDC1F02064400F32A02 /* XCBuildTask.m */,
 				25F261EE1F0630F000131F07 /* GitTask.h */,
 				25F261EF1F0630F000131F07 /* GitTask.m */,
+				256CB3E21F1340BA002F93B5 /* UploadTask.h */,
+				256CB3E31F1340BA002F93B5 /* UploadTask.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +184,7 @@
 		251E873D1EFB96610044FA7B /* DataUnit */ = {
 			isa = PBXGroup;
 			children = (
+				256CB3DE1F132EF6002F93B5 /* Request */,
 				25E8ECDA1EFCC558002AC584 /* DB */,
 				251E873E1EFB968E0044FA7B /* Project */,
 			);
@@ -272,6 +281,15 @@
 				25595CD91F02061800F32A02 /* XCBuildTaskManager.m */,
 			);
 			path = BuildTools;
+			sourceTree = "<group>";
+		};
+		256CB3DE1F132EF6002F93B5 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				256CB3DF1F132FF0002F93B5 /* HttpRequestManager.h */,
+				256CB3E01F132FF0002F93B5 /* HttpRequestManager.m */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		25E8ECDA1EFCC558002AC584 /* DB */ = {
@@ -393,13 +411,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutoBuildApp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1CEF5F98E463E400B4D016A4 /* [CP] Embed Pods Frameworks */ = {
@@ -439,6 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				256CB3E11F132FF0002F93B5 /* HttpRequestManager.m in Sources */,
 				25595CD31F00D4DF00F32A02 /* GreatUserInterfaceControlAlert.m in Sources */,
 				25E8ECE61EFF70B2002AC584 /* GreatUserInterfaceControl.m in Sources */,
 				251E873C1EFA7F6A0044FA7B /* ColorView.m in Sources */,
@@ -457,6 +479,7 @@
 				251E87221EFA62CA0044FA7B /* MainViewModel.m in Sources */,
 				25E8ECDD1EFCC56C002AC584 /* DBManager.m in Sources */,
 				251E87271EFA67290044FA7B /* ViewController.m in Sources */,
+				256CB3E41F1340BA002F93B5 /* UploadTask.m in Sources */,
 				251E87391EFA7AA80044FA7B /* MainTopBar.m in Sources */,
 				251E87341EFA6EBE0044FA7B /* MainViewTableCellView.m in Sources */,
 				251E872B1EFA6AA20044FA7B /* MainViewTableCellModel.m in Sources */,

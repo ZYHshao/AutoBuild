@@ -8,4 +8,6 @@ target 'AutoBuildApp' do
   # Pods for AutoBuildApp
 pod 'Masonry', '~> 1.0.2'
 
+pod 'AFNetworking'
+
 end
