@@ -29,6 +29,7 @@
         self.type = taskType;
         self.project = project;
         self.gitDicFullPath = project.gitFilePath;
+        self.mode = BaseTaskModeShell;
         [self createFormatStringAndInfo];
     }
     return self;

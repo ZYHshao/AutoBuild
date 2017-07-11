@@ -12,5 +12,10 @@
 //subClass reWrite
 @synthesize scriptFormat;
 @synthesize taskInfo;
+@synthesize mode;
+
+-(void)innerTask:(void (^)(id, BOOL, CGFloat))taskInfoCallback{
+    taskInfoCallback(nil,NO,0);
+}
 
 @end

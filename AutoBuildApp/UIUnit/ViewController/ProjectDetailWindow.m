@@ -150,7 +150,6 @@
     self.project.password = self.passwordField.stringValue;
     self.project.updataMessage = self.uploadMessageLabel.stringValue;
     self.project.authority = [self.aothorityButton indexOfSelectedItem]+1;
-    self.project.updataMessage = self.uploadMessageLabel.stringValue;
     [[ProjectManager defaultManager]refreshProject:self.project];
     GUC_REFRESH(GUCMainView);
 }

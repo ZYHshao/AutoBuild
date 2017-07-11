@@ -8,10 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, BaseTaskMode) {
+    BaseTaskModeShell,
+    BaseTaskiInnerTask,
+};
+
 @protocol TaskProtocol <NSObject>
 
 @property (nonatomic,strong)NSString * scriptFormat;
 
 @property (nonatomic,strong)NSString * taskInfo;
+
+@property (nonatomic,assign)BaseTaskMode mode;
+
+-(void)innerTask:(void(^)(id data,BOOL finish,CGFloat progress))taskInfoCallback;
 
 @end

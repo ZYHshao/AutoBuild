@@ -30,6 +30,7 @@
     if (self) {
         self.type = taskType;
         self.project = project;
+        self.mode = BaseTaskModeShell;
         [self createFormatStringAndInfo];
     }
     return self;

@@ -1,3 +1,5 @@
+
+
 //
 //  HttpRequestManager.m
 //  AutoBuildApp
@@ -12,6 +14,8 @@
 @interface HttpRequestManager()
 
 @property(nonatomic,strong)AFURLSessionManager * manager;
+
+@property(nonatomic,strong)NSURLRequest * request;
 
 @end
 
@@ -29,16 +33,15 @@
 }
 
 -(void)uploadFile:(NSString *)filePath params:(NSDictionary *)paramsDic conpletion:(UploadFileCompleted)completed{
-    NSURLRequest * request = [[AFHTTPRequestSerializer serializer]multipartFormRequestWithMethod:@"POST" URLString:@"https://qiniu-storage.pgyer.com/apiv1/app/upload" parameters:paramsDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        [formData appendPartWithFileURL:[NSURL fileURLWithPath:filePath] name:@"ipa" fileName:@"app.ipa" mimeType:@"application/octet-stream" error:nil];
+    self.request = [[AFHTTPRequestSerializer serializer]multipartFormRequestWithMethod:@"POST" URLString:@"https://qiniu-storage.pgyer.com/apiv1/app/upload" parameters:paramsDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:filePath] name:@"file" fileName:@"VSVipUnion.ipa" mimeType:@"application/octet-stream" error:nil];
     } error:nil];
-    [self.manager uploadTaskWithStreamedRequest:request progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"全部%lld",uploadProgress.totalUnitCount);
-        NSLog(@"已经上传%lld",uploadProgress.completedUnitCount);
+    [[self.manager uploadTaskWithStreamedRequest:self.request progress:^(NSProgress * _Nonnull uploadProgress) {
+        NSLog(@"总：%lld",uploadProgress.totalUnitCount);
+        NSLog(@"完成：%lld",uploadProgress.completedUnitCount);
     } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSLog(@"%@",dic);
-    }];
+        completed(responseObject,1);
+    }] resume];
 }
 
 #pragma mark -- setter and getter

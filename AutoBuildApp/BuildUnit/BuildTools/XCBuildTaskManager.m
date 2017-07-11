@@ -102,31 +102,48 @@
     [queue addOperationWithBlock:^{
         for (int i=0; i<array.count; i++) {
             NSDictionary * errorDic = nil;
-            NSAppleScript * script = [[NSAppleScript alloc]initWithSource:array[i].scriptFormat];
-            NSAppleEventDescriptor* descript = [script executeAndReturnError:&errorDic];
-            task.progress = (i+1.0)/task.totalTask;
-            BOOL finish = NO;
-            //如果有错误 取消掉后续任务
-            if (errorDic) {
-                [__self.allRuningProjectTask removeObject:task];
-                finish = YES;
+            if (array[i].mode == BaseTaskModeShell) {
+                NSAppleScript * script = [[NSAppleScript alloc]initWithSource:array[i].scriptFormat];
+                NSAppleEventDescriptor* descript = [script executeAndReturnError:&errorDic];
+                task.progress = (i+1.0)/task.totalTask;
+                BOOL finish = NO;
+                //如果有错误 取消掉后续任务
+                if (errorDic) {
+                    [__self.allRuningProjectTask removeObject:task];
+                    finish = YES;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        stepCallBack(i,errorDic,task.progress,descript.stringValue,array[i].taskInfo,finish);
+                    });
+                    return ;
+                }
+                if (i==array.count-1||task.isCancel) {
+                    //完成的任务 取消掉
+                    [__self.allRuningProjectTask removeObject:task];
+                    finish = YES;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        stepCallBack(i,errorDic,task.isCancel?0:task.progress,descript.stringValue,array[i].taskInfo,finish);
+                    });
+                    return;
+                }
                 dispatch_async(dispatch_get_main_queue(), ^{
                     stepCallBack(i,errorDic,task.progress,descript.stringValue,array[i].taskInfo,finish);
                 });
-                return ;
+            }else if(array[i].mode == BaseTaskiInnerTask){
+                [array[i] innerTask:^(id data, BOOL finish, CGFloat progress) {
+                    if (i==array.count-1||task.isCancel) {
+                        //完成的任务 取消掉
+                        [__self.allRuningProjectTask removeObject:task];
+                        finish = YES;
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            stepCallBack(i,data,progress,[NSString stringWithFormat:@"上传进度%f%%",progress],array[i].taskInfo,finish);
+                        });
+                        return;
+                    }
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        stepCallBack(i,data,progress,[NSString stringWithFormat:@"上传进度%f%%",progress],array[i].taskInfo,finish);
+                    });
+                }];
             }
-            if (i==array.count-1||task.isCancel) {
-                //完成的任务 取消掉
-                [__self.allRuningProjectTask removeObject:task];
-                finish = YES;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    stepCallBack(i,errorDic,task.isCancel?0:task.progress,descript.stringValue,array[i].taskInfo,finish);
-                });
-                return;
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                stepCallBack(i,errorDic,task.progress,descript.stringValue,array[i].taskInfo,finish);
-            });
             
         }
     }];

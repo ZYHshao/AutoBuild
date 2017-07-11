@@ -33,6 +33,7 @@
         _api_key = [coder decodeObjectForKey:@"api_key"];
         _authority = [coder decodeIntegerForKey:@"authority"];
         _password = [coder decodeObjectForKey:@"password"];
+        _updataMessage = [coder decodeObjectForKey:@"updataMessage"];
     }
     return self;
 }
@@ -56,6 +57,7 @@
     [coder encodeObject:_api_key forKey:@"api_key"];
     [coder encodeInteger:_authority forKey:@"authority"];
     [coder encodeObject:_password forKey:@"password"];
+    [coder encodeObject:_updataMessage forKey:@"updataMessage"];
 }
 
 

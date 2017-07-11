@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^UploadFileCompleted)(id response);
+typedef void(^UploadFileCompleted)(id response,CGFloat progress);
 
 @interface HttpRequestManager : NSObject
 
