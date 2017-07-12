@@ -130,17 +130,18 @@
                 });
             }else if(array[i].mode == BaseTaskiInnerTask){
                 [array[i] innerTask:^(id data, BOOL finish, CGFloat progress) {
-                    if (i==array.count-1||task.isCancel) {
+                    if ((i==array.count-1&&finish)||task.isCancel) {
                         //完成的任务 取消掉
+                        task.progress = (i+1.0)/task.totalTask;
                         [__self.allRuningProjectTask removeObject:task];
                         finish = YES;
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            stepCallBack(i,data,progress,[NSString stringWithFormat:@"上传进度%f%%",progress],array[i].taskInfo,finish);
+                            stepCallBack(i,nil,task.isCancel?0:task.progress,[NSString stringWithFormat:@"上传进度%f%%",progress*100],array[i].taskInfo,finish);
                         });
                         return;
                     }
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        stepCallBack(i,data,progress,[NSString stringWithFormat:@"上传进度%f%%",progress],array[i].taskInfo,finish);
+                        stepCallBack(i,nil,task.isCancel?0:task.progress,[NSString stringWithFormat:@"上传进度%f%%",progress*100],array[i].taskInfo,finish);
                     });
                 }];
             }

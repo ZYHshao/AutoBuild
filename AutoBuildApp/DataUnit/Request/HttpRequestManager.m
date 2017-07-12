@@ -37,8 +37,8 @@
         [formData appendPartWithFileURL:[NSURL fileURLWithPath:filePath] name:@"file" fileName:@"VSVipUnion.ipa" mimeType:@"application/octet-stream" error:nil];
     } error:nil];
     [[self.manager uploadTaskWithStreamedRequest:self.request progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"总：%lld",uploadProgress.totalUnitCount);
-        NSLog(@"完成：%lld",uploadProgress.completedUnitCount);
+        CGFloat pro = (CGFloat)uploadProgress.completedUnitCount/uploadProgress.totalUnitCount;
+        completed(nil,pro);
     } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         completed(responseObject,1);
     }] resume];

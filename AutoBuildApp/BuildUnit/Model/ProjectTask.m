@@ -41,15 +41,15 @@
         [array addObject:taskIPA];
         self.totalTask = 3;
     }else if(self.project.buildModel == ProjectSemiAuto){
-//        XCBuildTask * taskClean = [[XCBuildTask alloc]initWithProject:self.project taskType:XCBuildTaskTypeClean];
-//        XCBuildTask * taskArchive = [[XCBuildTask alloc]initWithProject:self.project taskType:XCBuildTaskTypeExportArchive];
-//        XCBuildTask * taskIPA = [[XCBuildTask alloc]initWithProject:self.project taskType:XCBuildTaskTypeExportIPA];
+        XCBuildTask * taskClean = [[XCBuildTask alloc]initWithProject:self.project taskType:XCBuildTaskTypeClean];
+        XCBuildTask * taskArchive = [[XCBuildTask alloc]initWithProject:self.project taskType:XCBuildTaskTypeExportArchive];
+        XCBuildTask * taskIPA = [[XCBuildTask alloc]initWithProject:self.project taskType:XCBuildTaskTypeExportIPA];
         UploadTask * taskUpload = [[UploadTask alloc]initWithProject:self.project];
-//        [array addObject:taskClean];
-//        [array addObject:taskArchive];
-//        [array addObject:taskIPA];
+        [array addObject:taskClean];
+        [array addObject:taskArchive];
+        [array addObject:taskIPA];
         [array addObject:taskUpload];
-        self.totalTask = 1;
+        self.totalTask = 4;
     }else if(self.project.buildModel == ProjectAuto){
         GitTask * checkout = [[GitTask alloc]initWithProject:self.project taskType:GitTaskTypeCheckOut];
         GitTask * pullTask = [[GitTask alloc]initWithProject:self.project taskType:GitTaskTypePull];

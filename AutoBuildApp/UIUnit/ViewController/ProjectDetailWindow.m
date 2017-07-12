@@ -176,7 +176,6 @@
                 NSString * finishString = [NSString stringWithFormat:@"\n!!!!!!!!!!!\n!!!!!!!!!!!!%@发生错误：@#_#@\n",info];
                 self.project.log = [NSString stringWithFormat:@"%@%@",logString,finishString];
             }
-            [[ProjectManager defaultManager]refreshProject:self.project];
             self.logWindow.string = self.project.log;
             [self.logWindow scrollToEndOfDocument:nil];
             if (isFinish) {
