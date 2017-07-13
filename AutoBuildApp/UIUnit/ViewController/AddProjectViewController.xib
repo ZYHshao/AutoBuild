@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AddProjectViewController">
+            <connections>
+                <outlet property="addButton" destination="5Ww-M3-JxM" id="Wiw-kT-5XJ"/>
+                <outlet property="cancelButton" destination="1LV-gi-2dN" id="BIX-94-M9B"/>
+                <outlet property="projectPathTextField" destination="gek-En-mv6" id="oUf-KE-mdN"/>
+                <outlet property="projectTitleTextField" destination="IMP-i7-jDV" id="9rP-ex-FdK"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="warningLabel" destination="NdO-mf-ahC" id="LcK-ti-b4K"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="251"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1LV-gi-2dN">
+                    <rect key="frame" x="255" y="13" width="67" height="32"/>
+                    <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TDE-IA-wiJ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="cancel:" target="-2" id="6cP-6u-W0g"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Ww-M3-JxM">
+                    <rect key="frame" x="349" y="13" width="67" height="32"/>
+                    <buttonCell key="cell" type="push" title="添加" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IeK-gf-HQh">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="add:" target="-2" id="Rlj-tw-0JL"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blE-ce-JK1">
+                    <rect key="frame" x="18" y="201" width="106" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="o3W-wW-Re0"/>
+                        <constraint firstAttribute="width" constant="102" id="vOS-eV-tQn"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="添加您的项目" id="ptQ-Q7-WWe">
+                        <font key="font" size="17" name="PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX6-aV-6TP">
+                    <rect key="frame" x="37" y="176" width="282" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="85V-dm-4dZ"/>
+                        <constraint firstAttribute="width" constant="278" id="9oG-rG-CDo"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="添加一个Xcode工程，帮助您更快进行打包构建" id="gGd-zr-UBf">
+                        <font key="font" size="13" name=".PingFangSC-Thin"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE1-3o-j87">
+                    <rect key="frame" x="18" y="142" width="71" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="工程路径：" id="5jo-it-QrM">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF0-gz-6xi">
+                    <rect key="frame" x="18" y="110" width="71" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="工程名称：" id="eJ2-3I-9a7">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gek-En-mv6">
+                    <rect key="frame" x="95" y="140" width="267" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="SR2-71-A0Z"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="请选择Xcode工程文件" drawsBackground="YES" id="K3j-Ii-woe">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMP-i7-jDV">
+                    <rect key="frame" x="95" y="105" width="315" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="键入项目名称" drawsBackground="YES" id="sVM-aq-get">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="psJ-Lm-stf">
+                    <rect key="frame" x="364" y="134" width="52" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Jkg-Zb-vWO"/>
+                        <constraint firstAttribute="height" constant="21" id="KWI-cH-AZZ"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R2n-AN-iOo">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="choiceFile:" target="-2" id="Q2g-Cm-T5c"/>
+                    </connections>
+                </button>
+                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdO-mf-ahC">
+                    <rect key="frame" x="20" y="60" width="392" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="6R1-rU-E6K"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="警告" id="1Tg-zx-47q">
+                        <font key="font" size="13" name="PingFangSC-Light"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="IMP-i7-jDV" secondAttribute="trailing" constant="27" id="6R1-xx-kCT"/>
+                <constraint firstAttribute="bottom" secondItem="5Ww-M3-JxM" secondAttribute="bottom" constant="20" id="7rr-vn-Pvz"/>
+                <constraint firstItem="HE1-3o-j87" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="92" id="8A9-TQ-84G"/>
+                <constraint firstItem="eF0-gz-6xi" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="124" id="ErY-uv-oVa"/>
+                <constraint firstItem="blE-ce-JK1" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="LxO-eX-Czk"/>
+                <constraint firstAttribute="bottom" secondItem="1LV-gi-2dN" secondAttribute="bottom" constant="20" id="Opq-dI-YzQ"/>
+                <constraint firstItem="oX6-aV-6TP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="39" id="PDN-HH-WL4"/>
+                <constraint firstAttribute="bottom" secondItem="NdO-mf-ahC" secondAttribute="bottom" constant="60" id="TJz-zi-tca"/>
+                <constraint firstItem="HE1-3o-j87" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="WFF-Wo-sW2"/>
+                <constraint firstItem="IMP-i7-jDV" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="124" id="Wec-cy-ocx"/>
+                <constraint firstAttribute="trailing" secondItem="NdO-mf-ahC" secondAttribute="trailing" constant="27" id="ceb-vS-yuf"/>
+                <constraint firstAttribute="trailing" secondItem="5Ww-M3-JxM" secondAttribute="trailing" constant="27" id="d2n-1J-7l8"/>
+                <constraint firstAttribute="trailing" secondItem="gek-En-mv6" secondAttribute="trailing" constant="75" id="dAU-Dv-4RW"/>
+                <constraint firstAttribute="trailing" secondItem="1LV-gi-2dN" secondAttribute="trailing" constant="121" id="dC0-8a-rMc"/>
+                <constraint firstItem="oX6-aV-6TP" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="58" id="dOH-Uz-JGH"/>
+                <constraint firstItem="blE-ce-JK1" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="dQf-Lb-ftT"/>
+                <constraint firstItem="IMP-i7-jDV" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="95" id="hDr-ZZ-X9c"/>
+                <constraint firstItem="eF0-gz-6xi" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="oOF-nT-Zn6"/>
+                <constraint firstItem="psJ-Lm-stf" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="89" id="puh-NV-Eul"/>
+                <constraint firstItem="gek-En-mv6" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="95" id="tpc-do-4MD"/>
+                <constraint firstItem="gek-En-mv6" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="89" id="y6D-wu-okG"/>
+                <constraint firstAttribute="trailing" secondItem="psJ-Lm-stf" secondAttribute="trailing" constant="27" id="zNa-UK-gLU"/>
+                <constraint firstItem="NdO-mf-ahC" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="22" id="zcg-b1-ulP"/>
+            </constraints>
+            <point key="canvasLocation" x="117.5" y="158.5"/>
+        </customView>
+    </objects>
+</document>

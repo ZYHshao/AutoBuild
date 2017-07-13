@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView identifier="MainViewTableCellViewId" id="c22-O7-iKe" customClass="MainViewTableCellView">
+            <rect key="frame" x="0.0" y="0.0" width="371" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3f-Vl-tHl">
+                    <rect key="frame" x="15" y="10" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="Pd0-kd-bBR"/>
+                        <constraint firstAttribute="height" constant="40" id="W6y-fx-pwl"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="唯" id="igf-HC-7zm">
+                        <font key="font" size="25" name="FranklinGothic-Book"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="eEX-oR-fOO" customClass="ColorView">
+                    <rect key="frame" x="0.0" y="0.0" width="371" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="7df-hE-4lA"/>
+                    </constraints>
+                </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9i-9T-rhD">
+                    <rect key="frame" x="67" y="19" width="58" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="唯品会" id="oSS-wH-5QI">
+                        <font key="font" size="18" name="KannadaMN"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="bWR-Bf-vYy">
+                    <rect key="frame" x="342" y="22" width="16" height="16"/>
+                </progressIndicator>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gbV-bn-CRN">
+                    <rect key="frame" x="269" y="21" width="65" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="65" id="VrH-GR-ydV"/>
+                    </constraints>
+                    <buttonCell key="cell" type="inline" title="全自动模式" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="7l6-GO-CSK">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystemBold"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="modelChangeAction:" target="c22-O7-iKe" id="apy-8H-W3f"/>
+                    </connections>
+                </button>
+                <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="yPJ-sm-VDd">
+                    <rect key="frame" x="238" y="22" width="16" height="16"/>
+                </progressIndicator>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bWR-Bf-vYy" secondAttribute="trailing" constant="13" id="KOY-2M-t7u"/>
+                <constraint firstItem="eEX-oR-fOO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="KRR-fd-KVD"/>
+                <constraint firstItem="X3f-Vl-tHl" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="OHm-jR-aLN"/>
+                <constraint firstItem="bWR-Bf-vYy" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="22" id="OKl-1t-1dL"/>
+                <constraint firstItem="X3f-Vl-tHl" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="17" id="OZ2-fY-NaK"/>
+                <constraint firstItem="Y9i-9T-rhD" firstAttribute="centerY" secondItem="X3f-Vl-tHl" secondAttribute="centerY" id="TwY-AM-Ge1"/>
+                <constraint firstAttribute="bottom" secondItem="eEX-oR-fOO" secondAttribute="bottom" id="Vbe-fX-uhF"/>
+                <constraint firstAttribute="trailing" secondItem="yPJ-sm-VDd" secondAttribute="trailing" constant="117" id="WEN-mL-IGr"/>
+                <constraint firstItem="Y9i-9T-rhD" firstAttribute="leading" secondItem="X3f-Vl-tHl" secondAttribute="trailing" constant="16" id="cc1-wU-lVw"/>
+                <constraint firstItem="gbV-bn-CRN" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="jdO-VH-6hC"/>
+                <constraint firstItem="yPJ-sm-VDd" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="lww-os-Xhf"/>
+                <constraint firstAttribute="trailing" secondItem="eEX-oR-fOO" secondAttribute="trailing" id="oaQ-wu-SSq"/>
+                <constraint firstAttribute="trailing" secondItem="gbV-bn-CRN" secondAttribute="trailing" constant="37" id="piZ-sA-Yda"/>
+            </constraints>
+            <connections>
+                <outlet property="bottonLine" destination="eEX-oR-fOO" id="wsT-JQ-cgx"/>
+                <outlet property="indicator" destination="yPJ-sm-VDd" id="416-vx-hYQ"/>
+                <outlet property="logoLabel" destination="X3f-Vl-tHl" id="YCh-jb-yUI"/>
+                <outlet property="modelButton" destination="gbV-bn-CRN" id="0T1-aR-z8g"/>
+                <outlet property="progressBar" destination="bWR-Bf-vYy" id="7PV-X2-rAM"/>
+                <outlet property="titleLabel" destination="Y9i-9T-rhD" id="YGv-Dp-4np"/>
+            </connections>
+            <point key="canvasLocation" x="-79.5" y="165"/>
+        </customView>
+    </objects>
+</document>
