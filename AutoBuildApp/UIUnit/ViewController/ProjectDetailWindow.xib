@@ -464,10 +464,10 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4yD-QN-CIq">
-                                            <rect key="frame" x="112" y="150" width="68" height="17"/>
+                                            <rect key="frame" x="111" y="147" width="69" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="17" id="2kU-4u-NoG"/>
-                                                <constraint firstAttribute="width" constant="64" id="SLJ-yW-o6C"/>
+                                                <constraint firstAttribute="height" constant="22" id="2kU-4u-NoG"/>
+                                                <constraint firstAttribute="width" constant="65" id="SLJ-yW-o6C"/>
                                             </constraints>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="_api_key：" id="j3r-Le-8UH">
                                                 <font key="font" size="13" name="FangSong"/>
@@ -542,6 +542,10 @@
                                         </textField>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J6U-hR-ZYC">
                                             <rect key="frame" x="583" y="11" width="67" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="55" id="3rU-5o-ish"/>
+                                                <constraint firstAttribute="height" constant="21" id="F7V-en-HAo"/>
+                                            </constraints>
                                             <buttonCell key="cell" type="push" title="应用" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Vjn-Sf-wIU">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -554,12 +558,12 @@
                                     <constraints>
                                         <constraint firstItem="VTZ-LX-zkT" firstAttribute="leading" secondItem="XGq-fd-T5B" secondAttribute="leading" constant="189" id="2hN-1O-zft"/>
                                         <constraint firstItem="NIY-64-adh" firstAttribute="leading" secondItem="XGq-fd-T5B" secondAttribute="leading" constant="189" id="5yZ-AN-3Y2"/>
-                                        <constraint firstItem="4yD-QN-CIq" firstAttribute="top" secondItem="XGq-fd-T5B" secondAttribute="top" constant="103" id="7WA-nw-vUk"/>
+                                        <constraint firstItem="4yD-QN-CIq" firstAttribute="top" secondItem="XGq-fd-T5B" secondAttribute="top" constant="101" id="7WA-nw-vUk"/>
                                         <constraint firstItem="NIY-64-adh" firstAttribute="top" secondItem="XGq-fd-T5B" secondAttribute="top" constant="137" id="BYc-qb-ShA"/>
                                         <constraint firstItem="UWM-da-L9Q" firstAttribute="leading" secondItem="XGq-fd-T5B" secondAttribute="leading" constant="135" id="IkD-PZ-6qo"/>
                                         <constraint firstItem="J6U-hR-ZYC" firstAttribute="top" secondItem="XGq-fd-T5B" secondAttribute="top" constant="231" id="NdE-cj-Ia8"/>
                                         <constraint firstItem="snH-i7-6Gm" firstAttribute="top" secondItem="XGq-fd-T5B" secondAttribute="top" constant="24" id="OXh-ca-anF"/>
-                                        <constraint firstItem="4yD-QN-CIq" firstAttribute="leading" secondItem="XGq-fd-T5B" secondAttribute="leading" constant="114" id="PSL-cB-Lb7"/>
+                                        <constraint firstItem="4yD-QN-CIq" firstAttribute="leading" secondItem="XGq-fd-T5B" secondAttribute="leading" constant="113" id="PSL-cB-Lb7"/>
                                         <constraint firstItem="snH-i7-6Gm" firstAttribute="centerX" secondItem="XGq-fd-T5B" secondAttribute="centerX" id="SWj-jd-Qxr"/>
                                         <constraint firstAttribute="trailing" secondItem="J6U-hR-ZYC" secondAttribute="trailing" constant="136" id="VJW-Jo-iuk"/>
                                         <constraint firstAttribute="trailing" secondItem="rNF-Lf-kZN" secondAttribute="trailing" constant="205" id="Wmv-xJ-dsb"/>
@@ -654,6 +658,9 @@
                     </scrollView>
                     <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="SCR-W0-wEQ">
                         <rect key="frame" x="31" y="169" width="749" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="mEX-X8-RNm"/>
+                        </constraints>
                     </progressIndicator>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="saL-mU-lAA">
                         <rect key="frame" x="293" y="204" width="67" height="32"/>
