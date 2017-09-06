@@ -122,6 +122,8 @@
         type = @"app-store";
     }else if (sender.indexOfSelectedItem==1){
         type = @"ad-hoc";
+    }else if(sender.indexOfSelectedItem==2){
+        type=@"enterprise";
     }else{
         type = @"development";
     }
@@ -255,8 +257,10 @@
         index = 1;
     }else if ([model.ipaType isEqualToString:@"app-store"]){
         index = 0;
-    }else{
+    }else if([model.ipaType isEqualToString:@"enterprise"]){
         index = 2;
+    }else{
+        index = 3;
     }
     [self.ipaTypeButton selectItemAtIndex:index];
     [self.modelTipLabel setStringValue:self.modelTipMessageArray[model.buildModel-1]];

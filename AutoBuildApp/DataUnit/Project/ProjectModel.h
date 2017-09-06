@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, DownLoadAuthority) {
 @property(nonatomic,strong)NSString * buildConfiguration;//Debug or Release default debug
 @property(nonatomic,strong)NSString * ipaPath;
 @property(nonatomic,assign)ProjectBuildModel buildModel; //defaule == UserOwnerModel
-@property(nonatomic,strong)NSString * ipaType;// ad-hoc app-store development
+@property(nonatomic,strong)NSString * ipaType;// ad-hoc app-store development enterprise
 
 #pragma mark -- git Progerty
 @property(nonatomic,strong)NSArray * gitBranchList;
