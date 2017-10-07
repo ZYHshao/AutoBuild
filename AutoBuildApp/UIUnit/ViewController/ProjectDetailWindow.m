@@ -41,6 +41,9 @@
 @property (weak) IBOutlet NSButton *selectIpaPath;
 @property (weak) IBOutlet NSButton *saveBuild;
 @property (weak) IBOutlet NSPopUpButton *ipaTypeButton;
+@property (weak) IBOutlet NSTextField *provisionFileIdField;
+@property (weak) IBOutlet NSTextField *provisionFileNameField;
+@property (weak) IBOutlet NSButton *ppFileHelpButton;
 
 //MARK: GIT
 @property (weak) IBOutlet NSTextField *gitUnableTipOne;
@@ -80,6 +83,10 @@
 }
 
 
+- (IBAction)ppFileHelp:(NSButton *)sender {
+    [GreatUserInterfaceControlAlert alertInWiondow:self.window withTitle:@"这里应该填什么？" message:@"左侧的输入框需要填写Provisioning Profile文件对应的APP ID;右侧输入框需要填写Provisioning Profile文件的名称。您可以在Xcode->Build Settings->Signing中找到对应信息。" callBack:^(int tag) {
+    } buttons:@"我明白了", nil];
+}
 
 -(void)remakeTitleBar{
     self.window.titlebarAppearsTransparent = YES;
@@ -138,6 +145,8 @@
     self.project.scheme = self.schemeTextField.stringValue;
     self.project.ipaPath = self.ipaTextField.stringValue;
     self.project.buildConfiguration = self.buildConfiguration.selectedItem.title;
+    self.project.provisioningId = self.provisionFileIdField.stringValue;
+    self.project.provisioningName = self.provisionFileNameField.stringValue;
     [[ProjectManager defaultManager]refreshProject:self.project];
     GUC_REFRESH(GUCMainView);
 }

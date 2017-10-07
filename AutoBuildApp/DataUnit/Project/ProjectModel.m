@@ -34,6 +34,8 @@
         _authority = [coder decodeIntegerForKey:@"authority"];
         _password = [coder decodeObjectForKey:@"password"];
         _updataMessage = [coder decodeObjectForKey:@"updataMessage"];
+        _provisioningId = [coder decodeObjectForKey:@"provisioningId"];
+        _provisioningName = [coder decodeObjectForKey:@"provisioningName"];
     }
     return self;
 }
@@ -58,6 +60,8 @@
     [coder encodeInteger:_authority forKey:@"authority"];
     [coder encodeObject:_password forKey:@"password"];
     [coder encodeObject:_updataMessage forKey:@"updataMessage"];
+    [coder encodeObject:_provisioningId forKey:@"provisioningId"];
+    [coder encodeObject:_provisioningName forKey:@"provisioningName"];
 }
 
 
@@ -180,6 +184,20 @@
     return _updataMessage;
 }
 
+-(NSString *)provisioningId{
+    if (!_provisioningId) {
+        _provisioningId = @"";
+    }
+    return _provisioningId;
+}
+
+-(NSString *)provisioningName{
+    if (!_provisioningName) {
+        _provisioningName = @"";
+    }
+    return _provisioningName;
+}
+
 #pragma mark -- mathod
 -(BOOL)couldStartPeoject:(NSString *__autoreleasing *)error{
     switch (self.buildModel) {
@@ -217,6 +235,10 @@
             }
             if (self.ipaPath.length==0) {
                 *error = @"必须设置IPA文件的输出目录";
+                return NO;
+            }
+            if (self.provisioningId.length==0||self.provisioningName.length==0) {
+                *error = @"请填写正确的Provisioning Profile文件信息";
                 return NO;
             }
             return YES;

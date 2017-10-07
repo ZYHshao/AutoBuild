@@ -54,8 +54,12 @@
 
 -(NSString *)getPlist{
     NSString * type = self.project.ipaType;
+    NSString * ppId = self.project.provisioningId;
+    NSString * ppName = self.project.provisioningName;
     NSDictionary * dic = @{@"compileBitcode":@NO,
-                            @"method":type};
+                            @"method":type,
+                           @"provisioningProfiles":@{ppId:ppName}
+                           };
     [dic writeToFile:[NSString stringWithFormat:@"%@/config.plist",self.project.archivePath] atomically:NO];
     return [NSString stringWithFormat:@"%@/config.plist",self.project.archivePath];
 }

@@ -10,7 +10,7 @@
 
 @implementation GreatUserInterfaceControlAlert
 
-+(void)alertInWiondow:(NSWindow *)window withTitle:(NSString *)title message:(NSString *)message callBack:(void(^)(int))callBack buttons:(NSString *)button, ...{
++(void)alertInWiondow:(__kindof NSWindow *)window withTitle:(NSString *)title message:(NSString *)message callBack:(void(^)(int))callBack buttons:(NSString *)button, ...{
     NSAlert * alert = [[NSAlert alloc]init];
     [alert setMessageText:title];
     [alert setInformativeText:message];

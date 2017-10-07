@@ -31,6 +31,8 @@ typedef NS_ENUM(NSUInteger, DownLoadAuthority) {
 @property(nonatomic,strong)NSString * ipaPath;
 @property(nonatomic,assign)ProjectBuildModel buildModel; //defaule == UserOwnerModel
 @property(nonatomic,strong)NSString * ipaType;// ad-hoc app-store development enterprise
+@property(nonatomic,strong)NSString * provisioningId;//PP flie id
+@property(nonatomic,strong)NSString * provisioningName;//PP name
 
 #pragma mark -- git Progerty
 @property(nonatomic,strong)NSArray * gitBranchList;
