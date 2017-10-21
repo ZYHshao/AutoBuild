@@ -257,6 +257,8 @@
     [self.buildConfiguration selectItemAtIndex:[model.buildConfiguration isEqualToString:@"Debug"]?0:1];
     [self.ipaTextField setStringValue:model.ipaPath];
     [self.buildModelSelectButton selectItemAtIndex:model.buildModel-1];
+    [self.provisionFileIdField setStringValue:model.provisioningId];
+    [self.provisionFileNameField setStringValue:model.provisioningName];
     self.logWindow.string = model.log;
     [self.logWindow scrollToEndOfDocument:nil];
     self.startButton.enabled = YES;
